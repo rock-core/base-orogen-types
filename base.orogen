@@ -1,13 +1,12 @@
 name 'base'
 version '0.1'
 
-toolkit do
-    internal_dependency 'base-types', '0.1'
-    load "base/time.h"
-    load "base/linear_algebra.h"
-    load "base/laser_readings.h"
-    load "base/imu_readings.h"
-    load "base/base_types.h"
-    load "base/position.h"
-end
+using_library "base-types"
+
+import_types_from "base/time.h"
+import_types_from "base/linear_algebra.h"
+import_types_from "base/laser_readings.h"
+import_types_from "base/imu_readings.h"
+import_types_from "base/base_types.h"
+import_types_from "base/position.h"
 
