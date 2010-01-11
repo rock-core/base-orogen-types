@@ -7,6 +7,7 @@ import_types_from "base/time.h"
 import_types_from "base/samples/laser_scan.h"
 import_types_from "base/wrappers/eigen.h"
 import_types_from "base/wrappers/pose.h"
+import_types_from "base/wrappers/waypoint.h"
 import_types_from "base/wrappers/samples/imu.h"
 import_types_from "base/wrappers/samples/rigid_body_state.h"
 

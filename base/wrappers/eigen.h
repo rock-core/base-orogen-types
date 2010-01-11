@@ -61,6 +61,12 @@ namespace wrappers
         data[1] = 0;
         data[2] = 0;
       };
+
+      Vector3(const double x, const double y, const double z) {
+        data[0] = x;
+        data[1] = y;
+        data[2] = z;
+      };
       
       Vector3(const Eigen::Vector3d& vec) 
       {
