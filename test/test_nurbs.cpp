@@ -19,6 +19,10 @@ void checkSameCurve(base::geometry::NURBSCurve3D& in, base::geometry::NURBSCurve
     // Now check that the two curves are really the same
     BOOST_REQUIRE_EQUAL(in.getStartParam(), out.getStartParam());
     BOOST_REQUIRE_EQUAL(in.getEndParam(), out.getEndParam());
+    BOOST_REQUIRE( in.getCurvatureMax() > 0 );
+    BOOST_REQUIRE( in.getCurveLength() > 0 );
+    BOOST_REQUIRE_EQUAL(in.getCurvatureMax(), out.getCurvatureMax());
+    BOOST_REQUIRE_EQUAL(in.getCurveLength(), out.getCurveLength());
 
     double start = in.getStartParam();
     double end   = in.getEndParam();
@@ -26,9 +30,9 @@ void checkSameCurve(base::geometry::NURBSCurve3D& in, base::geometry::NURBSCurve
     {
         Eigen::Vector3d in_p = in.getPoint(t);
         Eigen::Vector3d out_p = out.getPoint(t);
-        BOOST_CHECK_CLOSE(in_p.x(), out_p.x(), 0.001);
-        BOOST_CHECK_CLOSE(in_p.y(), out_p.y(), 0.001);
-        BOOST_CHECK_CLOSE(in_p.z(), out_p.z(), 0.001);
+        BOOST_REQUIRE_EQUAL(in_p.x(), out_p.x());
+        BOOST_REQUIRE_EQUAL(in_p.y(), out_p.y());
+        BOOST_REQUIRE_EQUAL(in_p.z(), out_p.z());
     }
 }
 
