@@ -38,6 +38,7 @@ namespace wrappers { namespace samples {
             s.acc  = acc;
             s.gyro = gyro;
             s.mag  = mag;
+            return s;
         }
 #endif
     };
