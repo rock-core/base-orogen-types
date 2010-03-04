@@ -6,6 +6,8 @@ SET (CMAKE_MODULE_PATH
     "${CMAKE_SOURCE_DIR}/.orogen/config"
     ${PROJECT_SOURCE_DIR}/cmake)
 
+add_definitions("-Wall")
+
 include(FindPkgConfig)
 find_package(Boost REQUIRED)
 include_directories(${BOOST_INCLUDE_DIR})
