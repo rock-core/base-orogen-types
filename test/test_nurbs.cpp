@@ -9,11 +9,10 @@ void initRandomCurve(base::geometry::NURBSCurve3D& in)
 {
     // Create 10 random points
     vector<Eigen::Vector3d> points;
-    Eigen::Vector3d p;
+    Eigen::Vector3d p(0, 0, 0);
     for (int i = 0; i < 10; ++i)
     {
-        // p += Eigen::Vector3d(rand(), rand(), rand());
-        p += Eigen::Vector3d(1, 1, 1);
+        p += Eigen::Vector3d(rand() & 0xFF, rand() & 0xFF, rand() & 0xFF);
         points.push_back(p);
     }
     in.interpolate(points);
@@ -33,11 +32,11 @@ void checkSameCurve(base::geometry::NURBSCurve3D& in, base::geometry::NURBSCurve
     double end   = in.getEndParam();
     for (double t = start; t < end; t += (end - start) / 10)
     {
-        Eigen::Vector3d in_p = in.getPoint(t);
+        Eigen::Vector3d in_p  = in.getPoint(t);
         Eigen::Vector3d out_p = out.getPoint(t);
-        BOOST_REQUIRE_SMALL(in_p.x() - out_p.x(), 0.001);
-        BOOST_REQUIRE_SMALL(in_p.y() - out_p.y(), 0.001);
-        BOOST_REQUIRE_SMALL(in_p.z() - out_p.z(), 0.001);
+        BOOST_REQUIRE_CLOSE(in_p.x(), out_p.x(), 0.001);
+        BOOST_REQUIRE_CLOSE(in_p.y(), out_p.y(), 0.001);
+        BOOST_REQUIRE_CLOSE(in_p.z(), out_p.z(), 0.001);
     }
 }
 
