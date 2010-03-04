@@ -1,20 +1,15 @@
-#ifndef BASE_WRAPPERS_GEOMETRY_NURBSCURVE3D
-#define BASE_WRAPPERS_GEOMETRY_NURBSCURVE3D
+#ifndef BASE_WRAPPERS_GEOMETRY_SPLINE
+#define BASE_WRAPPERS_GEOMETRY_SPLINE
 
 #include "base/wrappers/eigen.h"
 #ifndef __orogen
 #include <vector>
+#include <base/geometry/spline.h>
 #endif
-
-namespace base {
-    namespace geometry {
-        class NURBSCurve3D;
-    }
-}
 
 namespace wrappers {
 namespace geometry {
-    enum NURBSCurve3DType
+    enum SplineType
     {
         POLYNOMIAL_BSPLINE = 1,
         RATIONAL_BSPLINE   = 2,
@@ -22,17 +17,18 @@ namespace geometry {
         RATIONAL_BEZIER    = 4
     };
 
-    struct NURBSCurve3D
+    struct Spline
     {
         double geometric_resolution;
 
-        std::vector<wrappers::Vector3> points;
+        /** The dimension in which the curve lies */
+        int dimension;
 
         /** The curve order */
         int curve_order;
 
         /** The type of the curve */
-        NURBSCurve3DType kind;
+        SplineType kind;
 
         /** The curve knots. This is vertex_count + curve_order values */
         std::vector<double> knots;
@@ -42,12 +38,19 @@ namespace geometry {
         std::vector<double> vertices;
 
 #ifndef __orogen
-        static const int DIMENSION = 3;
-
-        NURBSCurve3D()
+        Spline()
             : geometric_resolution(1), kind(POLYNOMIAL_BSPLINE) {}
-        NURBSCurve3D(::base::geometry::NURBSCurve3D const& source);
-        operator ::base::geometry::NURBSCurve3D() const;
+        Spline(base::geometry::SplineBase const& source);
+
+        operator base::geometry::SplineBase() const;
+
+        template<int DIM>
+        base::geometry::Spline<DIM> cast() const
+        {
+            base::geometry::Spline<DIM> result;
+            result = static_cast<base::geometry::SplineBase>(*this);
+            return result;
+        }
 #endif
     };
 }

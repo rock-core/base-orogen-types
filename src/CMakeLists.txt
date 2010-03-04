@@ -5,7 +5,7 @@ if (SISL_FOUND)
     pkg_check_modules(BASE REQUIRED "base-lib")
     include_directories(${BASE_INCLUDE_DIRS})
     include_directories(${SISL_INCLUDE_DIRS})
-    list(APPEND LIBBASE_FILES ${CMAKE_SOURCE_DIR}/src/NURBSCurve3D.cpp)
+    list(APPEND LIBBASE_FILES ${CMAKE_SOURCE_DIR}/src/spline.cpp)
     list(APPEND LIBBASE_DEPENDENCIES ${SISL_LIBRARIES})
 endif()
 
