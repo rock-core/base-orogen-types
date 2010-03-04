@@ -8,20 +8,20 @@ Spline::Spline(::base::geometry::SplineBase const& source)
     : geometric_resolution(source.getGeometricResolution())
     , dimension(source.getDimension())
     , curve_order(source.getCurveOrder())
+    , kind(DEGENERATE)
 {
     SISLCurve const* curve = source.getSISLCurve();
     if (curve)
-    {
-        kind             = static_cast<SplineType>(curve->ikind);
-        knots            = source.getKnots();
-        vertices         = source.getCoordinates();
-    }
+        kind = static_cast<SplineType>(curve->ikind);
+
+    knots            = source.getKnots();
+    vertices         = source.getCoordinates();
 }
 
 Spline::operator ::base::geometry::SplineBase() const
 {
     base::geometry::SplineBase result(dimension, geometric_resolution, curve_order);
-    if (!knots.empty()) // we have a SISL curve definition
+    if (!vertices.empty())
         result.reset(vertices, knots, kind);
     return result;
 }

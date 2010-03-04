@@ -11,6 +11,7 @@ namespace wrappers {
 namespace geometry {
     enum SplineType
     {
+        DEGENERATE         = 0,
         POLYNOMIAL_BSPLINE = 1,
         RATIONAL_BSPLINE   = 2,
         POLYNOMIAL_BEZIER  = 3,

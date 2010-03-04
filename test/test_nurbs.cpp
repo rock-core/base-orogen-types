@@ -61,3 +61,21 @@ BOOST_AUTO_TEST_CASE( test_nurbscurve3d )
     checkSameCurve(in, out);
 }
 
+BOOST_AUTO_TEST_CASE( test_spline_singleton )
+{
+    base::geometry::NURBSCurve3D in;
+
+    Eigen::Vector3d p(1, 2, 3);
+    vector<Eigen::Vector3d> v;
+    v.push_back(p);
+    in.interpolate(v);
+
+    wrappers::geometry::Spline w(in);
+    base::geometry::NURBSCurve3D out = w.cast<3>();
+
+    BOOST_REQUIRE(in.isSingleton());
+    BOOST_REQUIRE(out.isSingleton());
+
+    BOOST_REQUIRE_EQUAL(in.getPoint(0), out.getPoint(0));
+}
+
