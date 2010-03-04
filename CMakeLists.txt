@@ -15,9 +15,7 @@ include_directories(${BOOST_INCLUDE_DIR})
 find_package(Eigen2 REQUIRED)
 include_directories(${EIGEN2_INCLUDE_DIR})
 
-add_subdirectory(src)
-
-set(TOOLKIT_ADDITIONAL_LIBRARIES wrapperlib)
+set(TOOLKIT_ADDITIONAL_SOURCES ${PROJECT_SOURCE_DIR}/src/spline.cpp)
 INCLUDE(baseBase)
 
 FIND_PACKAGE(Boost COMPONENTS unit_test_framework)
