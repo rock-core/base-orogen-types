@@ -15,7 +15,15 @@ include_directories(${BOOST_INCLUDE_DIR})
 find_package(Eigen2 REQUIRED)
 include_directories(${EIGEN2_INCLUDE_DIR})
 
-set(TOOLKIT_ADDITIONAL_SOURCES ${PROJECT_SOURCE_DIR}/src/spline.cpp)
+find_package(SISL)
+if (SISL_FOUND)
+    pkg_check_modules(BASELIB REQUIRED "base-lib")
+    include_directories(${BASELIB_INCLUDE_DIRS})
+    include_directories(${SISL_INCLUDE_DIRS})
+    list(APPEND TOOLKIT_ADDITIONAL_SOURCES ${CMAKE_SOURCE_DIR}/src/spline.cpp)
+    list(APPEND TOOLKIT_ADDITIONAL_LIBRARIES ${BASELIB_LIBRARIES} ${SISL_LIBRARIES})
+endif()
+
 INCLUDE(baseBase)
 
 FIND_PACKAGE(Boost COMPONENTS unit_test_framework)
