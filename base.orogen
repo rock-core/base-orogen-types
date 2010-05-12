@@ -5,6 +5,7 @@ using_library 'base-types'
 
 import_types_from "base/time.h"
 import_types_from "base/samples/laser_scan.h"
+import_types_from "base/samples/frame.h"
 import_types_from "base/wrappers/eigen.h"
 import_types_from "base/wrappers/pose.h"
 import_types_from "base/wrappers/waypoint.h"
