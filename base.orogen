@@ -16,6 +16,8 @@ import_types_from "base/wrappers/geometry/spline.h"
 
 # Explicitely intanciate ro_ptr wrappers for Frame and FramePair as it is the
 # standard way to push this kind of types on ports
-toolkit.ro_ptr('/base/samples/frame/Frame')
-toolkit.ro_ptr('/base/samples/frame/FramePair')
+toolkit do
+    ro_ptr('/base/samples/frame/Frame')
+    ro_ptr('/base/samples/frame/FramePair')
+end
 
