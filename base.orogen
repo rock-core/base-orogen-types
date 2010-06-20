@@ -12,6 +12,7 @@ import_types_from "base/wrappers/pose.h"
 import_types_from "base/wrappers/waypoint.h"
 import_types_from "base/wrappers/samples/imu.h"
 import_types_from "base/wrappers/samples/rigid_body_state.h"
+import_types_from "base/wrappers/samples/rigid_body_acceleration.h"
 import_types_from "base/wrappers/geometry/spline.h"
 
 # Explicitely intanciate ro_ptr wrappers for Frame and FramePair as it is the
