@@ -13,4 +13,5 @@
   <depend package="base"/>
   <depend package="orocos/orogen"/>
   <depend package="orocos/rtt"/>
+  <depend package="ruby/eigen"/>
 </package>
