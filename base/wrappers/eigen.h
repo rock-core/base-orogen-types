@@ -1,6 +1,10 @@
 #ifndef BASE_TYPES_EIGEN_WRAPPERS_H
 #define BASE_TYPES_EIGEN_WRAPPERS_H
 
+#ifdef __GCCXML__
+#define EIGEN_DONT_VECTORIZE
+#endif
+
 #ifndef __orogen
 #include <Eigen/Core>
 #include <Eigen/Geometry> 
