@@ -16,8 +16,15 @@ begin
     Typelib.convert_to_ruby '/wrappers/Vector3' do |value|
         Eigen::Vector3.new(*value.data.to_a)
     end
+    Typelib.convert_from_ruby Eigen::Vector3, '/wrappers/Vector3' do |value, type|
+        type.new(:data => value.to_a)
+    end
     Typelib.convert_to_ruby '/wrappers/Quaternion' do |value|
         Eigen::Quaternion.new(value.re, *value.im.to_a)
+    end
+    Typelib.convert_from_ruby Eigen::Quaternion, '/wrappers/Quaternion' do |value, type|
+        data = value.to_a
+        type.new(:re => data[0], :im => data[1, 3])
     end
 rescue LoadError
     STDERR.puts "The Ruby Eigen library is not present, I am not providing extensions for the base geometry types"
