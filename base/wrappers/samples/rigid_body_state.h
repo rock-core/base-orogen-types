@@ -69,6 +69,16 @@ namespace wrappers { namespace samples {
             state.cov_angular_velocity = cov_angular_velocity;
             return state;
         }
+        
+	operator Eigen::Transform3d() const
+	{
+	    Eigen::Transform3d ret;
+	    ret.setIdentity();
+	    ret.rotate(Eigen::Quaterniond(this->orientation));
+	    ret.translation() = Eigen::Vector3d(this->position);
+	    return ret;
+	}
+
 #endif
     };
 }}
