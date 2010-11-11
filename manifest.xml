@@ -11,7 +11,7 @@
     </copyright>
   <license>GPL v2 or later</license>
   <depend package="base"/>
-  <depend package="orocos/orogen"/>
-  <depend package="orocos/rtt"/>
-  <depend package="ruby/eigen"/>
+  <depend package="orogen"/>
+  <depend package="rtt"/>
+  <depend package="tools/reigen"/>
 </package>
