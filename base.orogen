@@ -34,6 +34,7 @@ typekit do
     export_types roptr_frame_t,
         roptr_framepair_t,
         '/base/Pose',
+        '/base/MotionCommand2D',
         '/base/samples/LaserScan',
         '/base/samples/frame/FramePair',
         '/base/samples/frame/Frame',
