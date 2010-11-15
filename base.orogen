@@ -9,6 +9,7 @@ import_types_from "base/samples/frame.h"
 import_types_from "base/samples/laser_scan.h"
 
 import_types_from "base/wrappers/eigen.h"
+typekit.opaque_type '/Eigen/Vector2d', 'wrappers/Vector2d'
 typekit.opaque_type '/Eigen/Vector3d', 'wrappers/Vector3d'
 typekit.opaque_type '/Eigen/Quaterniond', 'wrappers/Quaterniond'
 typekit.opaque_type '/Eigen/Matrix3d', 'wrappers/Matrix3d'
