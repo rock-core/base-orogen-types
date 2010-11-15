@@ -1,11 +1,13 @@
 #ifndef BASE_WRAPPERS_GEOMETRY_SPLINE
 #define BASE_WRAPPERS_GEOMETRY_SPLINE
 
-#include "base/wrappers/eigen.h"
-#ifndef __orogen
 #include <vector>
-#include <base/geometry/spline.h>
-#endif
+
+namespace base {
+namespace geometry {
+    class SplineBase;
+}
+}
 
 namespace wrappers {
 namespace geometry {
@@ -38,21 +40,8 @@ namespace geometry {
          * non-rational and vertex_count * (dimension + 1) otherwise. */
         std::vector<double> vertices;
 
-#ifndef __orogen
-        Spline()
-            : geometric_resolution(1), kind(POLYNOMIAL_BSPLINE) {}
-        Spline(base::geometry::SplineBase const& source);
-
-        operator base::geometry::SplineBase() const;
-
-        template<int DIM>
-        base::geometry::Spline<DIM> cast() const
-        {
-            base::geometry::Spline<DIM> result;
-            result = static_cast<base::geometry::SplineBase>(*this);
-            return result;
-        }
-#endif
+        Spline() {}
+        Spline(::base::geometry::SplineBase const&);
     };
 }
 }

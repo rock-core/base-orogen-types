@@ -5,6 +5,6 @@ link_directories(${BASE_LIBRARY_DIRS})
 if (SISL_LIBRARIES)
     set(ADDITIONAL_TESTS test_nurbs.cpp)
 endif()
-add_executable(test test.cpp test_eigen_wrappers.cpp ${ADDITIONAL_TESTS} ${TOOLKIT_ADDITIONAL_SOURCES})
+add_executable(test test.cpp ${ADDITIONAL_TESTS} ${TOOLKIT_ADDITIONAL_SOURCES})
 target_link_libraries(test ${Boost_UNIT_TEST_FRAMEWORK_LIBRARIES} ${BASE_LIBRARIES})
 

@@ -18,11 +18,3 @@ Spline::Spline(::base::geometry::SplineBase const& source)
     vertices         = source.getCoordinates();
 }
 
-Spline::operator ::base::geometry::SplineBase() const
-{
-    base::geometry::SplineBase result(dimension, geometric_resolution, curve_order);
-    if (!vertices.empty())
-        result.reset(vertices, knots, kind);
-    return result;
-}
-

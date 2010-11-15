@@ -7,21 +7,46 @@ import_types_from "base/time.h"
 import_types_from "base/motion_command.h"
 import_types_from "base/samples/frame.h"
 import_types_from "base/samples/laser_scan.h"
+
 import_types_from "base/wrappers/eigen.h"
-import_types_from "base/wrappers/pose.h"
-import_types_from "base/wrappers/waypoint.h"
-import_types_from "base/wrappers/samples/imu.h"
-import_types_from "base/wrappers/samples/rigid_body_state.h"
-import_types_from "base/wrappers/samples/rigid_body_acceleration.h"
-import_types_from "base/wrappers/samples/point_cloud.h"
-import_types_from "base/wrappers/geometry/spline.h"
+typekit.opaque_type '/Eigen/Vector3d', 'wrappers/Vector3d'
+typekit.opaque_type '/Eigen/Quaterniond', 'wrappers/Quaterniond'
+typekit.opaque_type '/Eigen/Matrix3d', 'wrappers/Matrix3d'
+
+import_types_from 'base/wrappers/geometry/spline.h'
+typekit.opaque_type '/base/geometry/Spline<3>', '/wrappers/geometry/Spline'
+import_types_from "base/geometry/spline.h"
+
+import_types_from "base/pose.h"
+import_types_from "base/waypoint.h"
+import_types_from "base/samples/imu.h"
+import_types_from "base/samples/rigid_body_state.h"
+import_types_from "base/samples/rigid_body_acceleration.h"
 import_types_from "base/actuators/status.h"
 import_types_from "base/actuators/commands.h"
 
 # Explicitely intanciate ro_ptr wrappers for Frame and FramePair as it is the
 # standard way to push this kind of types on ports
 typekit do
-    ro_ptr('/base/samples/frame/Frame')
-    ro_ptr('/base/samples/frame/FramePair')
+    roptr_frame_t     = ro_ptr('/base/samples/frame/Frame')
+    roptr_framepair_t = ro_ptr('/base/samples/frame/FramePair')
+
+    export_types roptr_frame_t,
+        roptr_framepair_t,
+        '/base/Pose',
+        '/base/samples/LaserScan',
+        '/base/samples/frame/FramePair',
+        '/base/samples/frame/Frame',
+        '/base/samples/RigidBodyState',
+        '/base/samples/RigidBodyAcceleration',
+        '/base/samples/IMUSensors',
+        '/base/actuators/FourWheelCommand',
+        '/base/actuators/FourWheeled',
+        '/base/AUVMotionCommand',
+        '/base/AUVPositionCommand',
+        '/base/geometry/Spline<3>',
+        '/base/Time',
+        '/base/Position',
+        '/std/string'
 end
 
