@@ -14,9 +14,12 @@ typekit.opaque_type '/Eigen/Vector3d', 'wrappers/Vector3d'
 typekit.opaque_type '/Eigen/Quaterniond', 'wrappers/Quaterniond'
 typekit.opaque_type '/Eigen/Matrix3d', 'wrappers/Matrix3d'
 
-import_types_from 'base/wrappers/geometry/spline.h'
-typekit.opaque_type '/base/geometry/Spline<3>', '/wrappers/geometry/Spline'
-import_types_from "base/geometry/spline.h"
+if has_library?('base-lib')
+    using_library 'base-lib'
+    import_types_from 'base/wrappers/geometry/spline.h'
+    typekit.opaque_type '/base/geometry/Spline<3>', '/wrappers/geometry/Spline'
+    import_types_from "base/geometry/spline.h"
+end
 
 import_types_from "base/pose.h"
 import_types_from "base/waypoint.h"
