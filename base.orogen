@@ -52,6 +52,7 @@ typekit do
         '/base/geometry/Spline<3>',
         '/base/Time',
         '/base/Position',
+        '/base/Waypoint',
         '/std/string'
 end
 
