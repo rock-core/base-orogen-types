@@ -8,12 +8,6 @@ import_types_from "base/motion_command.h"
 import_types_from "base/samples/frame.h"
 import_types_from "base/samples/laser_scan.h"
 
-import_types_from "base/wrappers/eigen.h"
-typekit.opaque_type '/Eigen/Vector2d', 'wrappers/Vector2d'
-typekit.opaque_type '/Eigen/Vector3d', 'wrappers/Vector3d'
-typekit.opaque_type '/Eigen/Quaterniond', 'wrappers/Quaterniond'
-typekit.opaque_type '/Eigen/Matrix3d', 'wrappers/Matrix3d'
-
 if has_library?('base-lib')
     using_library 'base-lib'
     import_types_from 'base/wrappers/geometry/spline.h'
@@ -21,11 +15,18 @@ if has_library?('base-lib')
     import_types_from "base/geometry/spline.h"
 end
 
+import_types_from "base/wrappers/eigen.h"
+typekit.opaque_type '/base/Vector2d', 'wrappers/Vector2d'
+typekit.opaque_type '/base/Vector3d', 'wrappers/Vector3d'
+typekit.opaque_type '/base/Quaterniond', 'wrappers/Quaterniond'
+typekit.opaque_type '/base/Matrix3d', 'wrappers/Matrix3d'
+typekit.opaque_type '/base/Matrix4d', 'wrappers/Matrix4d'
 import_types_from "base/pose.h"
 import_types_from "base/waypoint.h"
 import_types_from "base/samples/imu.h"
 import_types_from "base/samples/rigid_body_state.h"
 import_types_from "base/samples/rigid_body_acceleration.h"
+
 import_types_from "base/actuators/status.h"
 import_types_from "base/actuators/commands.h"
 
@@ -53,6 +54,7 @@ typekit do
         '/base/Time',
         '/base/Position',
         '/base/Waypoint',
+        '/base/Matrix4d',
         '/std/string'
 end
 

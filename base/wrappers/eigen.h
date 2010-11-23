@@ -35,9 +35,7 @@ namespace wrappers
     struct __gccxml_workaround_eigen_wrappers_instanciator {
         Matrix<double, 3, 3> matrix3;
         Matrix<double, 4, 4> matrix4;
-        Matrix<double, 3, 4> matrix3x4;
         Matrix<double, 4, 4> matrix4x4;
-        Matrix<double, 4, 3> matrix4x3;
         Matrix<double, 2, 1> vector2;
         Matrix<double, 3, 1> vector3;
         Matrix<double, 4, 1> vector4;
@@ -46,12 +44,9 @@ namespace wrappers
 
     typedef Matrix<double, 3, 3> Matrix3d;
     typedef Matrix<double, 4, 4> Matrix4d;
-    typedef Matrix<double, 3, 4> Matrix3x4d;
     typedef Matrix<double, 4, 4> Matrix4x4d;
-    typedef Matrix<double, 4, 3> Matrix4x3d;
     typedef Matrix<double, 2, 1> Vector2d;
     typedef Matrix<double, 3, 1> Vector3d;
-    typedef Matrix<double, 4, 1> Vector4d;
     typedef Quaternion<double>   Quaterniond;
 }
 
