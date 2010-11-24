@@ -10,7 +10,7 @@
         Sylvain Joyeux/sylvain.joyeux@m4x.org
     </copyright>
   <license>GPL v2 or later</license>
-  <depend package="base"/>
+  <depend package="base/types"/>
   <depend package="orogen"/>
   <depend package="rtt"/>
   <depend package="tools/reigen"/>
