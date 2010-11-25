@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void initRandomCurve(base::geometry::NURBSCurve3D& in)
+void initRandomCurve(base::geometry::Spline<3>& in)
 {
     // Create 10 random points
     vector<Eigen::Vector3d> points;
@@ -18,7 +18,7 @@ void initRandomCurve(base::geometry::NURBSCurve3D& in)
     in.interpolate(points);
 }
 
-void checkSameCurve(base::geometry::NURBSCurve3D& in, base::geometry::NURBSCurve3D& out)
+void checkSameCurve(base::geometry::Spline<3>& in, base::geometry::Spline<3>& out)
 {
     // Now check that the two curves are really the same
     BOOST_REQUIRE_EQUAL(in.getStartParam(), out.getStartParam());
