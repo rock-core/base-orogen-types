@@ -64,6 +64,7 @@ typekit do
         '/base/Time',
         '/base/Position',
         '/base/Waypoint',
+        '/std/vector</base/Waypoint>',
         '/base/Matrix4d',
         '/std/string'
 end
