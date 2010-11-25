@@ -23,6 +23,7 @@ import_types_from "base/wrappers/eigen.h"
 
 if has_library?('base-lib')
     typekit.opaque_type '/base/geometry/Spline<3>', '/wrappers/geometry/Spline'
+    typekit.opaque_type '/base/geometry/Spline<1>', '/wrappers/geometry/Spline'
 end
 typekit.opaque_type '/base/Vector2d', 'wrappers/Vector2d'
 typekit.opaque_type '/base/Vector3d', 'wrappers/Vector3d'
@@ -58,6 +59,7 @@ typekit do
         '/base/actuators/Command',
         '/base/AUVMotionCommand',
         '/base/AUVPositionCommand',
+        '/base/geometry/Spline<1>',
         '/base/geometry/Spline<3>',
         '/base/Time',
         '/base/Position',
