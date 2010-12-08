@@ -51,6 +51,7 @@ typekit do
         '/base/MotionCommand2D',
         '/base/samples/LaserScan',
         '/base/samples/frame/FramePair',
+        '/base/samples/frame/frame_mode_t',
         '/base/samples/frame/Frame',
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
