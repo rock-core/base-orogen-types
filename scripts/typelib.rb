@@ -16,7 +16,7 @@ Typelib.convert_from_ruby Time, '/base/Time', :if => lambda { |t| t.has_field?('
 end
 Typelib.convert_from_ruby Time, '/base/Time', :if => lambda { |t| !t.has_field?('seconds') } do |value, typelib_type|
     result = typelib_type.new
-    result.microseconds = value.tv_sec * 1_000_000 * value.tv_usec
+    result.microseconds = value.tv_sec * 1_000_000 + value.tv_usec
     result
 end
 
