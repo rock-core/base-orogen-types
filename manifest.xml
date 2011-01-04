@@ -11,9 +11,9 @@
     </copyright>
   <license>GPL v2 or later</license>
   <depend package="base/types"/>
+  <depend package="base/types_ruby" optional="1"/>
   <depend package="orogen"/>
   <depend package="rtt"/>
-  <depend package="tools/reigen"/>
 
   <tags>stable</tags>
 </package>
