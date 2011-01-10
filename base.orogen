@@ -45,6 +45,13 @@ typekit do
     roptr_frame_t     = ro_ptr('/base/samples/frame/Frame')
     roptr_framepair_t = ro_ptr('/base/samples/frame/FramePair')
 
+    if type_export_policy == :used
+        # We assume that, if the caller wants a 'used' type policy, it means he
+        # wants partial exports. Move to 'selected'. oroGen would have changed
+        # it to 'all'
+        type_export_policy :selected
+    end
+
     export_types roptr_frame_t,
         roptr_framepair_t,
         '/base/Pose',
