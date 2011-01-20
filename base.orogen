@@ -8,6 +8,7 @@ import_types_from "base/time.h"
 import_types_from "base/motion_command.h"
 import_types_from "base/samples/frame.h"
 import_types_from "base/samples/laser_scan.h"
+import_types_from "base/samples/sonar_scan.h"
 import_types_from "base/actuators/status.h"
 import_types_from "base/actuators/commands.h"
 import_types_from "base/actuators/vehicles.h"
@@ -57,6 +58,7 @@ typekit do
         '/base/Pose',
         '/base/MotionCommand2D',
         '/base/samples/LaserScan',
+        '/base/samples/SonarScan',
         '/base/samples/frame/FramePair',
         '/base/samples/frame/frame_mode_t',
         '/base/samples/frame/Frame',
