@@ -40,6 +40,8 @@ import_types_from "base/samples/imu.h"
 import_types_from "base/samples/rigid_body_state.h"
 import_types_from "base/samples/rigid_body_acceleration.h"
 
+max_sizes '/base/samples/RigidBodyState', 'sourceFrame' => 32, 'targetFrame' => 32
+
 # Explicitely intanciate ro_ptr wrappers for Frame and FramePair as it is the
 # standard way to push this kind of types on ports
 typekit do
