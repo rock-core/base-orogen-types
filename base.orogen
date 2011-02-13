@@ -59,6 +59,7 @@ typekit do
         roptr_framepair_t,
         '/base/Pose',
         '/base/MotionCommand2D',
+        '/base/SpeedCommand6D',
         '/base/samples/LaserScan',
         '/base/samples/SonarScan',
         '/base/samples/frame/FramePair',
