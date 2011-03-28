@@ -29,6 +29,7 @@ end
 typekit.opaque_type '/base/Vector2d', 'wrappers/Vector2d'
 typekit.opaque_type '/base/Vector3d', 'wrappers/Vector3d'
 typekit.opaque_type '/base/Quaterniond', 'wrappers/Quaterniond'
+typekit.opaque_type '/base/Matrix2d', 'wrappers/Matrix2d'
 typekit.opaque_type '/base/Matrix3d', 'wrappers/Matrix3d'
 typekit.opaque_type '/base/Matrix4d', 'wrappers/Matrix4d'
 if has_library?('base-lib')
