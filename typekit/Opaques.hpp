@@ -22,8 +22,8 @@ namespace orogen_typekits
     }
 
 
-    template<typename T>
-    void toIntermediate(::wrappers::Quaternion<T>& intermediate, ::Eigen::Quaternion<T> const& real)
+    template<typename T, int EIGEN_OPTIONS>
+    void toIntermediate(::wrappers::Quaternion<T>& intermediate, ::Eigen::Quaternion<T, EIGEN_OPTIONS> const& real)
     {
         intermediate.re = real.w();
         intermediate.im[0] = real.x();
@@ -31,8 +31,8 @@ namespace orogen_typekits
         intermediate.im[2] = real.z();
     }
 
-    template<typename T>
-    void fromIntermediate(::Eigen::Quaternion<T>& real, ::wrappers::Quaternion<T> const& intermediate)
+    template<typename T, int EIGEN_OPTIONS>
+    void fromIntermediate(::Eigen::Quaternion<T, EIGEN_OPTIONS>& real, ::wrappers::Quaternion<T> const& intermediate)
     {
         real.w() = intermediate.re;
         real.x() = intermediate.im[0];

@@ -14,6 +14,7 @@
   <depend package="base/types_ruby" optional="1"/>
   <depend package="orogen"/>
   <depend package="rtt"/>
+  <osdeps name="eigen3"/>
 
   <tags>stable</tags>
 </package>
