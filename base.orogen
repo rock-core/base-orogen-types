@@ -79,6 +79,7 @@ typekit do
         '/base/geometry/Spline<3>',
         '/base/Time',
         '/base/Position',
+        '/std/vector</base/Vector3d>',
         '/base/Waypoint',
         '/std/vector</base/Waypoint>',
         '/base/Matrix4d',
