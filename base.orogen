@@ -7,6 +7,7 @@ using_library 'base-types'
 import_types_from "base/time.h"
 import_types_from "base/motion_command.h"
 import_types_from "base/samples/frame.h"
+import_types_from "base/samples/compressed_frame.h"
 import_types_from "base/samples/laser_scan.h"
 import_types_from "base/samples/sonar_scan.h"
 import_types_from "base/samples/pointcloud.h"
@@ -49,6 +50,7 @@ max_sizes '/base/samples/RigidBodyState', 'sourceFrame' => 32, 'targetFrame' => 
 typekit do
     roptr_frame_t     = ro_ptr('/base/samples/frame/Frame')
     roptr_framepair_t = ro_ptr('/base/samples/frame/FramePair')
+    roptr_compressed_frame_t     = ro_ptr('/base/samples/frame/CompressedFrame')
 
     if type_export_policy == :used
         # We assume that, if the caller wants a 'used' type policy, it means he
@@ -59,6 +61,7 @@ typekit do
 
     export_types roptr_frame_t,
         roptr_framepair_t,
+		roptr_compressed_frame_t,
         '/base/Pose',
         '/base/MotionCommand2D',
         '/base/SpeedCommand6D',
@@ -68,6 +71,7 @@ typekit do
         '/base/samples/frame/FramePair',
         '/base/samples/frame/frame_mode_t',
         '/base/samples/frame/Frame',
+        '/base/samples/frame/CompressedFrame',
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
