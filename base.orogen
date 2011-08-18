@@ -10,6 +10,7 @@ import_types_from "base/samples/frame.h"
 import_types_from "base/samples/laser_scan.h"
 import_types_from "base/samples/sonar_scan.h"
 import_types_from "base/samples/pointcloud.h"
+import_types_from "base/samples/distance_image.h"
 import_types_from "base/actuators/status.h"
 import_types_from "base/actuators/commands.h"
 import_types_from "base/actuators/vehicles.h"
@@ -63,6 +64,7 @@ typekit do
         '/base/MotionCommand2D',
         '/base/SpeedCommand6D',
 	'/base/samples/Pointcloud',
+	'/base/samples/DistanceImage',
         '/base/samples/LaserScan',
         '/base/samples/SonarScan',
         '/base/samples/frame/FramePair',
