@@ -4,7 +4,7 @@ LogTools::Converter.register "converter for base type sonar scan", time,Orocos.r
     conversion "/base/samples/SonarScan","/base/samples/SonarBeam" do |dst,src|
         deep_cast(dst.beam,src.scanData)
         dst.time = src.time
-        dst.bearing.rad =  2*Math::PI-src.angle 
+        dst.bearing.rad = Math::PI-src.angle
         dst.bearing.rad = dst.bearing.rad - 2*Math::PI if dst.bearing.rad > Math::PI
         dst.sampling_interval = src.time_beetween_bins
         dst.beamwidth_vertical = 35/180* Math::PI 
