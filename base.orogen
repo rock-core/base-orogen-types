@@ -84,6 +84,7 @@ typekit do
         '/std/vector</base/Vector3d>',
         '/base/Waypoint',
         '/std/vector</base/Waypoint>',
+        '/std/vector</uint32_t>',
         '/base/Matrix4d',
         '/std/string'
 end
