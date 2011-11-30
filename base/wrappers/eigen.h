@@ -36,6 +36,7 @@ namespace wrappers
         Matrix<double, 2, 2> matrix2;
         Matrix<double, 3, 3> matrix3;
         Matrix<double, 4, 4> matrix4;
+        Matrix<double, 6, 6> matrix6;
         Matrix<double, 4, 4> matrix4x4;
         Matrix<double, 2, 1> vector2;
         Matrix<double, 3, 1> vector3;
@@ -46,6 +47,7 @@ namespace wrappers
     typedef Matrix<double, 2, 2> Matrix2d;
     typedef Matrix<double, 3, 3> Matrix3d;
     typedef Matrix<double, 4, 4> Matrix4d;
+    typedef Matrix<double, 6, 6> Matrix6d;
     typedef Matrix<double, 4, 4> Matrix4x4d;
     typedef Matrix<double, 2, 1> Vector2d;
     typedef Matrix<double, 3, 1> Vector3d;

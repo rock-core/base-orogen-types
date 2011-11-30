@@ -34,6 +34,7 @@ typekit.opaque_type '/base/Quaterniond', 'wrappers/Quaterniond'
 typekit.opaque_type '/base/Matrix2d', 'wrappers/Matrix2d'
 typekit.opaque_type '/base/Matrix3d', 'wrappers/Matrix3d'
 typekit.opaque_type '/base/Matrix4d', 'wrappers/Matrix4d'
+typekit.opaque_type '/base/Matrix6d', 'wrappers/Matrix6d'
 if has_library?('base-lib')
     import_types_from "base/geometry/spline.h"
 end
@@ -82,9 +83,11 @@ typekit do
         '/base/Time',
         '/base/Position',
         '/std/vector</base/Vector3d>',
+        '/std/vector</double>',
         '/base/Waypoint',
         '/std/vector</base/Waypoint>',
         '/base/Matrix4d',
+        '/base/Matrix6d',
         '/std/string'
 end
 
