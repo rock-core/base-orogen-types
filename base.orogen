@@ -89,6 +89,7 @@ typekit do
         '/std/vector</uint32_t>',
         '/base/Matrix4d',
         '/base/Matrix6d',
-        '/std/string'
+        '/std/string',
+        '/base/Angle'
 end
 
