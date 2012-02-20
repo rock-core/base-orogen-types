@@ -90,6 +90,8 @@ typekit do
         '/base/Waypoint',
         '/std/vector</base/Waypoint>',
         '/std/vector</uint32_t>',
+        '/base/Vector3d',
+        '/base/Vector4d',
         '/base/Matrix4d',
         '/base/Matrix6d',
         '/std/string',
