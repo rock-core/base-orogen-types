@@ -7,7 +7,6 @@ using_library 'base-types'
 import_types_from "base/time.h"
 import_types_from "base/motion_command.h"
 import_types_from "base/samples/frame.h"
-import_types_from "base/samples/kinematic_state.h"
 import_types_from "base/samples/laser_scan.h"
 import_types_from "base/samples/sonar_beam.h"
 import_types_from "base/samples/pointcloud.h"
@@ -76,7 +75,6 @@ typekit do
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
-        '/base/samples/KinematicState',
         '/base/actuators/Status',
         '/base/actuators/Command',
         '/base/AUVMotionCommand',
