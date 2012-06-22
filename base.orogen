@@ -6,6 +6,7 @@ using_library 'base-types'
 # Common types that are not opaques
 import_types_from "base/time.h"
 import_types_from "base/motion_command.h"
+import_types_from "base/trajectory.h"
 import_types_from "base/samples/frame.h"
 import_types_from "base/samples/laser_scan.h"
 import_types_from "base/samples/sonar_beam.h"
@@ -65,6 +66,8 @@ typekit do
         '/base/Pose',
         '/base/MotionCommand2D',
         '/base/SpeedCommand6D',
+        '/base/Trajectory',
+        '/std/vector</base/Trajectory>',
 	'/base/samples/Pointcloud',
 	'/base/samples/DistanceImage',
         '/base/samples/LaserScan',
