@@ -100,7 +100,7 @@ typekit do
         '/base/Matrix6d',
         '/base/Quaterniond',
         '/std/string',
-        '/base/Angle'
-	"/base/Temperature"
+        '/base/Angle',
+	'/base/Temperature'
 end
 
