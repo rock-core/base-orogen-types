@@ -4,6 +4,7 @@ version '0.1'
 using_library 'base-types'
 
 # Common types that are not opaques
+import_types_from "base/temperature.h"
 import_types_from "base/time.h"
 import_types_from "base/motion_command.h"
 import_types_from "base/trajectory.h"
@@ -100,5 +101,6 @@ typekit do
         '/base/Quaterniond',
         '/std/string',
         '/base/Angle'
+	"/base/Temperature"
 end
 
