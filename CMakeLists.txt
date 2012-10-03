@@ -35,6 +35,7 @@ ENDIF(Boost_UNIT_TEST_FRAMEWORK_FOUND)
 list(APPEND CMAKE_MODULE_PATH $ENV{ROCK_CMAKE_MACROS})
 include(RockRuby)
 rock_log_migration()
+rock_log_export()
 
 # FIND_PACKAGE(KDL)
 # FIND_PACKAGE(OCL)
