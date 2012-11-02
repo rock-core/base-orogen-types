@@ -11,14 +11,10 @@ class TC_TypelibConvertions < Test::Unit::TestCase
     def test_time_to_ruby
         time_t = registry.get '/base/Time'
         value = time_t.new
-        value.seconds = 10
         value.microseconds = 100
 
         time = Typelib.to_ruby(value)
         assert_kind_of(Time, time)
-        assert_equal(10, time.seconds)
-        assert_equal(100, time.microseconds)
-        assert_equal(10, time.tv_sec)
         assert_equal(100, time.tv_usec)
     end
     def test_time_from_ruby
@@ -27,12 +23,11 @@ class TC_TypelibConvertions < Test::Unit::TestCase
         time = Time.at(10, 100)
         value = Typelib.from_ruby(time, time_t)
         assert_kind_of(time_t, value)
-        assert_equal(10, value.seconds)
-        assert_equal(100, value.microseconds)
+        assert_equal(10*1000000 + 100, value.microseconds)
     end
 
     def test_vector_to_ruby
-        vector_t = registry.get '/wrappers/Vector3'
+        vector_t = registry.get '/wrappers/Vector3d'
         value = vector_t.new
         value.data[0] = 10
         value.data[1] = 100
@@ -47,7 +42,7 @@ class TC_TypelibConvertions < Test::Unit::TestCase
     end
 
     def test_vector_from_ruby
-        vector_t = registry.get '/wrappers/Vector3'
+        vector_t = registry.get '/wrappers/Vector3d'
 
         vector = Eigen::Vector3.new(10, 100, 1000)
         value  = Typelib.from_ruby(vector, vector_t)
@@ -56,7 +51,7 @@ class TC_TypelibConvertions < Test::Unit::TestCase
     end
 
     def test_quaternion_to_ruby
-        quaternion_t = registry.get '/wrappers/Quaternion'
+        quaternion_t = registry.get '/wrappers/Quaterniond'
         value = quaternion_t.new
         value.re    = 1
         value.im[0] = 10
@@ -74,7 +69,7 @@ class TC_TypelibConvertions < Test::Unit::TestCase
     end
 
     def test_quaternion_from_ruby
-        quaternion_t = registry.get '/wrappers/Quaternion'
+        quaternion_t = registry.get '/wrappers/Quaterniond'
 
         quaternion = Eigen::Quaternion.new(1, 10, 100, 1000)
         value  = Typelib.from_ruby(quaternion, quaternion_t)
