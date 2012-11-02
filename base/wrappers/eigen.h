@@ -2,6 +2,7 @@
 #define BASE_TYPES_EIGEN_WRAPPERS_H
 
 #ifndef __orogen
+#include <vector>
 #include <Eigen/Core>
 #include <Eigen/Geometry> 
 #endif
@@ -16,6 +17,16 @@ namespace wrappers
     {
         typedef _Scalar Scalar;
         _Scalar data[_ROWS * _COLS];
+    };
+    
+    /** Wrapper for Eigen::MatrixXd and Eigen::VectorXd. */
+    template<typename _Scalar>
+    struct MatrixX
+    {
+        typedef _Scalar Scalar;
+        int rows;
+        int cols;
+        std::vector<_Scalar> data;
     };
 
     /**
@@ -42,6 +53,7 @@ namespace wrappers
         Matrix<double, 3, 1> vector3;
         Matrix<double, 4, 1> vector4;
         Quaternion<double>   quaternion;
+        MatrixX<double> matrixx;
     };
 
     typedef Matrix<double, 2, 2> Matrix2d;
@@ -53,6 +65,8 @@ namespace wrappers
     typedef Matrix<double, 3, 1> Vector3d;
     typedef Matrix<double, 4, 1> Vector4d;
     typedef Quaternion<double>   Quaterniond;
+    typedef MatrixX<double> MatrixXd;
+    typedef std::vector<double> VectorXd;
 }
 
 #endif

@@ -82,5 +82,58 @@ class TC_TypelibConvertions < Test::Unit::TestCase
         assert_equal(1, value.re)
         assert_equal([10, 100, 1000], value.im.to_a)
     end
+
+    def test_matrixx_to_ruby
+        matrixxd_t = registry.get 'wrappers/MatrixXd'
+        value = matrixxd_t.new
+
+        value.rows = 2
+        value.cols = 3
+        value.data = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+
+        matrixxd = Typelib.to_ruby(value)
+        assert_kind_of(Eigen::MatrixX,matrixxd)
+        assert_equal(matrixxd.rows(),2)
+        assert_equal(matrixxd.cols(),3)
+        assert_equal([1.0,2.0,3.0,4.0,5.0,6.0],matrixxd.to_a)
+    end
+    
+    def test_matrixx_from_ruby
+        matrixxd_t = registry.get 'wrappers/MatrixXd'
+        matrixxd = Eigen::MatrixX.new(2,3)
+        matrixxd.from_a([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+
+        value = Typelib.from_ruby(matrixxd,matrixxd_t)
+
+        assert_equal(value.rows,2)
+        assert_equal(value.cols,3)
+        assert_equal(value.data.to_a, [1.0,2.0,3.0,4.0,5.0,6.0])
+        
+
+    end
+    
+    def test_vectorx_to_ruby
+        matrixxd_t = registry.get 'wrappers/VectorXd'
+        value = matrixxd_t.new
+        data = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+        data.each { |v| value.push(v) }
+
+        vectorxd = Typelib.to_ruby(value)
+        assert_kind_of(Eigen::VectorX,vectorxd)
+        assert_equal(vectorxd.size(),6)
+        assert_equal([1.0,2.0,3.0,4.0,5.0,6.0],vectorxd.to_a)
+    end
+    
+    def test_vectorx_from_ruby
+        vectorxd_t = registry.get 'wrappers/VectorXd'
+        vectorxd = Eigen::VectorX.new(6)
+        vectorxd.from_a([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
+
+        value = Typelib.from_ruby(vectorxd,vectorxd_t)
+
+        assert_equal(value.size,6)
+        assert_equal(value.to_a, [1.0,2.0,3.0,4.0,5.0,6.0])
+    end
+
 end
 
