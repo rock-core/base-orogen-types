@@ -40,7 +40,7 @@ namespace orogen_typekits
     {
         typedef const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenMatrix;
         
-        Eigen::Map<EigenMatrix> m(&(intermediate.data[0]),real.rows(), real.cols());
+        Eigen::Map<EigenMatrix> m(&(intermediate.data[0]),intermediate.rows, intermediate.cols);
         real = m;
     }
     
