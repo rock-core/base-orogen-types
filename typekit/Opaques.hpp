@@ -45,22 +45,22 @@ namespace orogen_typekits
     }
     
     template<typename T, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
-    void toIntermediate(std::vector<T>& intermediate, Eigen::Matrix<T, Eigen::Dynamic, 1, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS> const& real)
+    void toIntermediate(wrappers::VectorX<T>& intermediate, Eigen::Matrix<T, Eigen::Dynamic, 1, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS> const& real)
     {
         typedef Eigen::Matrix<T,Eigen::Dynamic,1,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenVector;
         
-        intermediate.resize(real.size(),0.0);
+        intermediate.data.resize(real.size(),0.0);
         
-        Eigen::Map<EigenVector> m(&(intermediate[0]),real.size());
+        Eigen::Map<EigenVector> m(&(intermediate.data[0]),real.size());
         m = real;
     }
 
     template<typename T, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
-    void fromIntermediate(Eigen::Matrix<T, Eigen::Dynamic, 1, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS>& real, std::vector<T> const& intermediate)
+    void fromIntermediate(Eigen::Matrix<T, Eigen::Dynamic, 1, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS>& real, wrappers::VectorX<T> const& intermediate)
     {
         typedef const Eigen::Matrix<T,Eigen::Dynamic,1,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenVector;
         
-        Eigen::Map<EigenVector> m(&(intermediate[0]),intermediate.size());
+        Eigen::Map<EigenVector> m(&(intermediate.data[0]),intermediate.data.size());
         real = m;
     }
 

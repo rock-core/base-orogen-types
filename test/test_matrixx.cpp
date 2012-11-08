@@ -69,28 +69,28 @@ BOOST_AUTO_TEST_CASE ( vectorxd_to_intermediate ) {
 
     toIntermediate(w, v);
 
-    BOOST_CHECK ( v.size() == w.size() );
+    BOOST_CHECK ( v.size() == w.data.size() );
 
     for ( int j = 0; j<v.size(); j++)
-        BOOST_CHECK( v[j] == w[j] );
+        BOOST_CHECK( v[j] == w.data[j] );
 }
 
 BOOST_AUTO_TEST_CASE ( vectorxd_from_intermediate ) {
 
     wrappers::VectorXd w;
 
-    w.resize(7, 0.0);
+    w.data.resize(7, 0.0);
 
     for ( int i = 0; i < 7; i++)
-        w[i] = i * 1.37 - 2.0;
+        w.data[i] = i * 1.37 - 2.0;
 
     base::VectorXd v;
 
     fromIntermediate(v, w);
 
-    BOOST_CHECK ( v.size() == w.size() );
+    BOOST_CHECK ( v.size() == w.data.size() );
     for ( int j = 0; j<v.size(); j++)
-        BOOST_CHECK( v[j] == w[j] );
+        BOOST_CHECK( v[j] == w.data[j] );
     
 }
 

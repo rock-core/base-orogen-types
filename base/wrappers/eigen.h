@@ -19,7 +19,7 @@ namespace wrappers
         _Scalar data[_ROWS * _COLS];
     };
     
-    /** Wrapper for Eigen::MatrixXd and Eigen::VectorXd. */
+    /** Wrapper for Eigen::MatrixXd. */
     template<typename _Scalar>
     struct MatrixX
     {
@@ -28,6 +28,15 @@ namespace wrappers
         int cols;
         std::vector<_Scalar> data;
     };
+    
+    /** Wrapper for Eigen::VectorXd. */
+    template<typename _Scalar>
+    struct VectorX
+    {
+        typedef _Scalar Scalar;
+        std::vector<_Scalar> data; 
+    };
+    
 
     /**
      * Wrapper class for Eigen quaternions
@@ -53,6 +62,7 @@ namespace wrappers
         Matrix<double, 3, 1> vector3;
         Matrix<double, 4, 1> vector4;
         Quaternion<double>   quaternion;
+        VectorX<double> vectorx;
         MatrixX<double> matrixx;
     };
 
@@ -65,8 +75,8 @@ namespace wrappers
     typedef Matrix<double, 3, 1> Vector3d;
     typedef Matrix<double, 4, 1> Vector4d;
     typedef Quaternion<double>   Quaterniond;
+    typedef VectorX<double> VectorXd;
     typedef MatrixX<double> MatrixXd;
-    typedef std::vector<double> VectorXd;
 }
 
 #endif
