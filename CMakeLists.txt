@@ -32,7 +32,7 @@ IF (Boost_UNIT_TEST_FRAMEWORK_FOUND)
     ADD_SUBDIRECTORY(test)
 ENDIF(Boost_UNIT_TEST_FRAMEWORK_FOUND)
 
-list(APPEND CMAKE_MODULE_PATH $ENV{ROCK_CMAKE_MACROS})
+find_package(Rock)
 include(RockRuby)
 rock_log_migration()
 rock_log_export()
