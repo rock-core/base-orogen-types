@@ -108,3 +108,5 @@ typekit do
 	'/base/Temperature'
 end
 
+typekit.ros_mappings 'base/Time' => 'std_msgs/Time',
+    'base/samples/frame/Frame' => 'sensor_msgs/Image'
