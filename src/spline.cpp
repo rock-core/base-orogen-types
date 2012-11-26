@@ -1,6 +1,6 @@
 #include "base/wrappers/geometry/spline.h"
 #include <base/geometry/spline.h>
-#include <sisl/sisl.h>
+#include <sisl.h>
 
 using namespace wrappers::geometry;
 
