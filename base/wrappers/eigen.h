@@ -61,6 +61,7 @@ namespace wrappers
         Matrix<double, 2, 1> vector2;
         Matrix<double, 3, 1> vector3;
         Matrix<double, 4, 1> vector4;
+        Matrix<double, 6, 1> vector6;
         Quaternion<double>   quaternion;
         VectorX<double> vectorx;
         MatrixX<double> matrixx;
@@ -74,6 +75,7 @@ namespace wrappers
     typedef Matrix<double, 2, 1> Vector2d;
     typedef Matrix<double, 3, 1> Vector3d;
     typedef Matrix<double, 4, 1> Vector4d;
+    typedef Matrix<double, 6, 1> Vector6d;
     typedef Quaternion<double>   Quaterniond;
     typedef VectorX<double> VectorXd;
     typedef MatrixX<double> MatrixXd;
