@@ -105,7 +105,8 @@ typekit do
         '/base/Quaterniond',
         '/std/string',
         '/base/Angle',
-	'/base/Temperature'
+	'/base/Temperature',
+	'/std/vector</std/string>'
 end
 
 typekit.ros_mappings 'base/Time' => 'std_msgs/Time',
