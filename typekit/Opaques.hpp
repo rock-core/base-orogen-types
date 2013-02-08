@@ -22,27 +22,41 @@ namespace orogen_typekits
     }
     
 
-    template<typename T, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
-    void toIntermediate(wrappers::MatrixX<T>& intermediate, Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS> const& real)
+    template<typename T, int ROWS, int COLS, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
+    void toIntermediate(::wrappers::MatrixX<T>& intermediate, Eigen::Matrix<T, ROWS, COLS, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS> const& real)
     {
         intermediate.data.resize(real.size(), 0.0);
         intermediate.rows = real.rows();
         intermediate.cols = real.cols();
 
-        typedef Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenMatrix;
+        typedef Eigen::Matrix<T,ROWS,COLS,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenMatrix;
         
         Eigen::Map<EigenMatrix> m(&(intermediate.data[0]),real.rows(), real.cols());
         m = real;
     }
 
-    template<typename T, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
-    void fromIntermediate(Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS>& real, wrappers::MatrixX<T> const& intermediate)
+    template<typename T, int ROWS, int COLS, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
+    void fromIntermediate(Eigen::Matrix<T, ROWS, COLS, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS>& real, ::wrappers::MatrixX<T> const& intermediate)
     {
-        typedef const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenMatrix;
+        typedef const Eigen::Matrix<T,ROWS,COLS,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenMatrix;
         
         Eigen::Map<EigenMatrix> m(&(intermediate.data[0]),intermediate.rows, intermediate.cols);
         real = m;
     }
+
+
+    template<typename T, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
+    void toIntermediate(wrappers::MatrixX<T>& intermediate, Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS> const& real)
+    {
+        toIntermediate<T,Eigen::Dynamic,Eigen::Dynamic,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS>(intermediate, real);
+    }
+
+    template<typename T, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
+    void fromIntermediate(Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS>& real, wrappers::MatrixX<T> const& intermediate)
+    {
+        fromIntermediate<T, Eigen::Dynamic, Eigen::Dynamic, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS>(real, intermediate); 
+    }
+
     
     template<typename T, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>
     void toIntermediate(wrappers::VectorX<T>& intermediate, Eigen::Matrix<T, Eigen::Dynamic, 1, EIGEN_OPTIONS, EIGEN_MAX_ROWS, EIGEN_MAX_COLS> const& real)
