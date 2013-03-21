@@ -11,6 +11,7 @@ import_types_from "base/trajectory.h"
 import_types_from "base/samples/frame.h"
 import_types_from "base/samples/laser_scan.h"
 import_types_from "base/samples/sonar_beam.h"
+import_types_from "base/samples/sonar_scan.h"
 import_types_from "base/samples/pointcloud.h"
 import_types_from "base/samples/distance_image.h"
 import_types_from "base/actuators/status.h"
@@ -76,6 +77,7 @@ typekit do
 	'/base/samples/DistanceImage',
         '/base/samples/LaserScan',
         '/base/samples/SonarBeam',
+        '/base/samples/SonarScan',
         '/base/samples/frame/FramePair',
         '/base/samples/frame/frame_mode_t',
         '/base/samples/frame/Frame',
