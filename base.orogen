@@ -113,5 +113,7 @@ typekit do
 	'/std/vector</std/string>'
 end
 
-typekit.ros_mappings 'base/Time' => 'std_msgs/Time',
-    'base/samples/frame/Frame' => 'sensor_msgs/Image'
+typekit.ros_mappings \
+    '/std/string' => 'std_msgs/String',
+    '/base/Time' => 'std_msgs/Time',
+    '/base/samples/frame/Frame' => 'sensor_msgs/Image'
