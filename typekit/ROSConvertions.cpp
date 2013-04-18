@@ -95,3 +95,14 @@ void ros_convertions::fromROS( ::base::samples::frame::Frame& value, sensor_msgs
     value.image = ros.data;
 }
 
+void ros_convertions::toROS( sensor_msgs::Image& ros, ::RTT::extras::ReadOnlyPointer< ::base::samples::frame::Frame > const& value )
+{
+    toROS(ros, *value);
+}
+void ros_convertions::fromROS( ::RTT::extras::ReadOnlyPointer< ::base::samples::frame::Frame >& value, sensor_msgs::Image const& ros )
+{
+    base::samples::frame::Frame* frame = new base::samples::frame::Frame;
+    fromROS(*frame, ros);
+    value.reset(frame);
+}
+

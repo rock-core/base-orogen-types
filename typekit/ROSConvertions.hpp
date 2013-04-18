@@ -18,6 +18,10 @@ namespace ros_convertions {
     
     void toROS( ros::Time& ros, ::base::Time const& value );
     void fromROS( ::base::Time& value, ros::Time const& ros );
+
+    void toROS( sensor_msgs::Image& ros, ::RTT::extras::ReadOnlyPointer< ::base::samples::frame::Frame > const& value );
+    void fromROS( ::RTT::extras::ReadOnlyPointer< ::base::samples::frame::Frame >& value, sensor_msgs::Image const& ros );
+    
     
     void toROS( sensor_msgs::Image& ros, ::base::samples::frame::Frame const& value );
     void fromROS( ::base::samples::frame::Frame& value, sensor_msgs::Image const& ros );

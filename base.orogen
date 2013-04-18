@@ -111,9 +111,11 @@ typekit do
         '/base/Angle',
 	'/base/Temperature',
 	'/std/vector</std/string>'
+
+    ros_mappings \
+        '/std/string' => 'std_msgs/String',
+        '/base/Time' => 'std_msgs/Time',
+        '/base/samples/frame/Frame' => 'sensor_msgs/Image',
+        roptr_frame_t => 'sensor_msgs/Image'
 end
 
-typekit.ros_mappings \
-    '/std/string' => 'std_msgs/String',
-    '/base/Time' => 'std_msgs/Time',
-    '/base/samples/frame/Frame' => 'sensor_msgs/Image'
