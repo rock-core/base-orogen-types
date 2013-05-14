@@ -3,8 +3,6 @@ version '0.1'
 
 using_library 'base-types'
 
-import_types_from 'std'
-
 # Common types that are not opaques
 import_types_from "base/temperature.h"
 import_types_from "base/time.h"
