@@ -1,6 +1,6 @@
 #include <boost/test/auto_unit_test.hpp>
-#include "base/wrappers/geometry/spline.h"
-#include <base/geometry/spline.h>
+#include <base/wrappers/geometry/Spline.hpp>
+#include <base/geometry/Spline.hpp>
 #include <iostream>
 
 using namespace std;

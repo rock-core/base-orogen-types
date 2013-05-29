@@ -4,28 +4,32 @@ version '0.1'
 using_library 'base-types'
 
 # Common types that are not opaques
-import_types_from "base/temperature.h"
-import_types_from "base/time.h"
-import_types_from "base/motion_command.h"
-import_types_from "base/trajectory.h"
-import_types_from "base/samples/frame.h"
-import_types_from "base/samples/laser_scan.h"
-import_types_from "base/samples/sonar_beam.h"
-import_types_from "base/samples/sonar_scan.h"
-import_types_from "base/samples/pointcloud.h"
-import_types_from "base/samples/distance_image.h"
-import_types_from "base/actuators/status.h"
-import_types_from "base/actuators/commands.h"
-import_types_from "base/actuators/vehicles.h"
+import_types_from "base/Temperature.hpp"
+import_types_from "base/Time.hpp"
+import_types_from "base/Trajectory.hpp"
+import_types_from "base/commands/AUVMotion.hpp"
+import_types_from "base/commands/Motion2D.hpp"
+import_types_from "base/commands/AUVPosition.hpp"
+import_types_from "base/commands/Speed6D.hpp"
+import_types_from "base/samples/Frame.hpp"
+import_types_from "base/samples/LaserScan.hpp"
+import_types_from "base/samples/SonarBeam.hpp"
+import_types_from "base/samples/SonarScan.hpp"
+import_types_from "base/samples/Pointcloud.hpp"
+import_types_from "base/samples/DistanceImage.hpp"
+import_types_from "base/backward/base/actuators/status.h"
+import_types_from "base/backward/base/actuators/commands.h"
+import_types_from "base/backward/base/actuators/vehicles.h"
+import_types_from "base/backward/base/motion_command.h"
 
 if has_library?('base-lib')
     using_library 'base-lib'
     # Opaque wrappers for Spline types
-    import_types_from 'base/wrappers/geometry/spline.h'
+    import_types_from 'base/wrappers/geometry/Spline.hpp'
 end
 
 # Opaque wrappers for Eigen types
-import_types_from "base/wrappers/eigen.h"
+import_types_from "base/wrappers/Eigen.hpp"
 
 if has_library?('base-lib')
     typekit.opaque_type '/base/geometry/Spline<3>', '/wrappers/geometry/Spline'
@@ -43,13 +47,13 @@ typekit.opaque_type '/base/Matrix6d', 'wrappers/Matrix6d'
 typekit.opaque_type '/base/MatrixXd', 'wrappers/MatrixXd'
 typekit.opaque_type '/base/VectorXd', 'wrappers/VectorXd'
 if has_library?('base-lib')
-    import_types_from "base/geometry/spline.h"
+    import_types_from "base/geometry/Spline.hpp"
 end
-import_types_from "base/pose.h"
-import_types_from "base/waypoint.h"
-import_types_from "base/samples/imu.h"
-import_types_from "base/samples/rigid_body_state.h"
-import_types_from "base/samples/rigid_body_acceleration.h"
+import_types_from "base/Pose.hpp"
+import_types_from "base/Waypoint.hpp"
+import_types_from "base/samples/IMUSensors.hpp"
+import_types_from "base/samples/RigidBodyState.hpp"
+import_types_from "base/samples/RigidBodyAcceleration.hpp"
 
 max_sizes '/base/samples/RigidBodyState', 'sourceFrame' => 32, 'targetFrame' => 32
 
@@ -69,8 +73,10 @@ typekit do
     export_types roptr_frame_t,
         roptr_framepair_t,
         '/base/Pose',
-        '/base/MotionCommand2D',
-        '/base/SpeedCommand6D',
+        '/base/commands/Motion2D',
+        '/base/commands/Speed6D',
+        '/base/commands/AUVMotion',
+        '/base/commands/AUVPosition',
         '/base/Trajectory',
         '/std/vector</base/Trajectory>',
 	'/base/samples/Pointcloud',
@@ -86,8 +92,6 @@ typekit do
         '/base/samples/IMUSensors',
         '/base/actuators/Status',
         '/base/actuators/Command',
-        '/base/AUVMotionCommand',
-        '/base/AUVPositionCommand',
         '/base/geometry/Spline<1>',
         '/base/geometry/Spline<3>',
         '/base/Time',
