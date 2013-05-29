@@ -11,12 +11,14 @@ import_types_from "base/commands/AUVMotion.hpp"
 import_types_from "base/commands/Motion2D.hpp"
 import_types_from "base/commands/AUVPosition.hpp"
 import_types_from "base/commands/Speed6D.hpp"
+import_types_from "base/commands/Joints.hpp"
 import_types_from "base/samples/Frame.hpp"
 import_types_from "base/samples/LaserScan.hpp"
 import_types_from "base/samples/SonarBeam.hpp"
 import_types_from "base/samples/SonarScan.hpp"
 import_types_from "base/samples/Pointcloud.hpp"
 import_types_from "base/samples/DistanceImage.hpp"
+import_types_from "base/samples/Joints.hpp"
 import_types_from "base/backward/base/actuators/status.h"
 import_types_from "base/backward/base/actuators/commands.h"
 import_types_from "base/backward/base/actuators/vehicles.h"
@@ -77,8 +79,10 @@ typekit do
         '/base/commands/Speed6D',
         '/base/commands/AUVMotion',
         '/base/commands/AUVPosition',
+        '/base/commands/Joints',
         '/base/Trajectory',
         '/std/vector</base/Trajectory>',
+        '/base/samples/Joints',
 	'/base/samples/Pointcloud',
 	'/base/samples/DistanceImage',
         '/base/samples/LaserScan',
