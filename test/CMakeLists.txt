@@ -5,7 +5,7 @@ link_directories(${BASE_LIBRARY_DIRS})
 pkg_check_modules(STD REQUIRED "std-typekit-gnulinux")
 include_directories(${STD_INCLUDE_DIRS})
 
-add_definitions("-DOROCOS_TARGET=$ENV{OROCOS_TARGET}")
+add_definitions("-DOROCOS_TARGET=${OROCOS_TARGET}")
 
 if (SISL_LIBRARIES)
     set(ADDITIONAL_TESTS test_nurbs.cpp)
