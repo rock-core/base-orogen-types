@@ -12,7 +12,6 @@
   <license>GPL v2 or later</license>
   <depend package="base/types"/>
   <depend package="base/orogen/std"/>
-  <depend package="base/types_ruby" optional="1"/>
   <depend package="orogen"/>
   <depend package="rtt"/>
   <osdeps name="eigen3"/>
