@@ -126,6 +126,8 @@ typekit do
         '/std/string' => 'std_msgs/String',
         '/base/Time' => 'std_msgs/Time',
         '/base/samples/frame/Frame' => 'sensor_msgs/Image',
-        roptr_frame_t => 'sensor_msgs/Image'
+        roptr_frame_t => 'sensor_msgs/Image',
+        '/base/samples/Joints' => 'sensor_msgs/JointState',
+        '/base/Pose' => 'geometry_msgs/Pose'
 end
 
