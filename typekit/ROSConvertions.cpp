@@ -203,3 +203,31 @@ void ros_convertions::fromROS( ::base::Pose_m& value, geometry_msgs::Pose const&
     value.orientation.re = ros.orientation.w;
 }
 
+void ros_convertions::toROS( trajectory_msgs::JointTrajectory& ros, ::base::JointsTrajectory const& value )
+{
+
+}
+
+void ros_convertions::fromROS( ::base::JointsTrajectory& value, trajectory_msgs::JointTrajectory const& ros )
+{	
+
+	value.elements.resize(ros.points.size());
+    	
+	value.names = ros.joint_names;
+    	
+
+	for(int i = 0; i < ros.points.size(); i++)
+	{
+		value.elements.at(i).resize(ros.points.at(i).positions.size());
+
+			for(int j = 0; j < ros.points.at(i).positions.size(); j++)
+			{	    	
+				value.elements.at(i).at(j).position = ros.points.at(i).positions.at(j);
+
+				value.elements.at(i).at(j).speed = ros.points.at(i).velocities.at(j);
+		
+			}		
+	}
+    
+}
+

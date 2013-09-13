@@ -12,6 +12,7 @@
 #include <sensor_msgs/Image.h>
 #include <geometry_msgs/Pose.h>
 #include <sensor_msgs/JointState.h>
+#include <trajectory_msgs/JointTrajectory.h>
 
 namespace ros_convertions {
     /** Converted types: */
@@ -33,6 +34,9 @@ namespace ros_convertions {
     
     void toROS( sensor_msgs::JointState& ros, ::base::samples::Joints const& value );
     void fromROS( ::base::samples::Joints& value, sensor_msgs::JointState const& ros );
+
+    void toROS( trajectory_msgs::JointTrajectory& ros, ::base::JointsTrajectory const& value );
+    void fromROS( ::base::JointsTrajectory& value, trajectory_msgs::JointTrajectory const& ros );
 
 }
 
