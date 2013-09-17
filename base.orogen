@@ -82,6 +82,7 @@ typekit do
         '/base/commands/AUVMotion',
         '/base/commands/AUVPosition',
         '/base/commands/Joints',
+        '/base/JointState',
         '/base/JointLimits',
         '/base/JointsTrajectory',
         '/base/Trajectory',
