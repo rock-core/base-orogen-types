@@ -26,6 +26,7 @@ import_types_from "base/backward/base/actuators/commands.h"
 import_types_from "base/backward/base/actuators/vehicles.h"
 import_types_from "base/backward/base/motion_command.h"
 
+
 if has_library?('base-lib')
     using_library 'base-lib'
     # Opaque wrappers for Spline types
@@ -128,9 +129,10 @@ typekit do
         '/std/string' => 'std_msgs/String',
         '/base/Time' => 'std_msgs/Time',
         '/base/samples/frame/Frame' => 'sensor_msgs/Image',
-        roptr_frame_t => 'sensor_msgs/Image',
+        roptr_frame_t => 'sensor_msgs/Image',        
         '/base/samples/Joints' => 'sensor_msgs/JointState',
         '/base/JointsTrajectory' => 'trajectory_msgs/JointTrajectory',
+        '/base/samples/RigidBodyState' => 'geometry_msgs/PoseStamped',
         '/base/Pose' => 'geometry_msgs/Pose'
 end
 
