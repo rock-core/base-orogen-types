@@ -116,13 +116,30 @@ void ros_convertions::toROS( sensor_msgs::JointState& ros, ::base::samples::Join
     ros.effort.resize(value.elements.size());
 
     ros.name =  value.names;
+	
+    size_t joint_number = value.elements.size();
 
-    for(size_t i = 0; i < value.elements.size(); ++i)
+    ros.position.resize(joint_number);
+    ros.velocity.resize(joint_number);
+    ros.effort.resize(joint_number);
+
+    for(size_t i = 0; i < joint_number; ++i)
     {
-        ros.position.at(i) =  value.elements.at(i).position;
-        ros.velocity.at(i) =  value.elements.at(i).speed;
-        ros.effort.at(i)   =  value.elements.at(i).effort;
-    }
+	if(value.elements.at(i).hasPosition())
+	{
+		ros.position.at(i) = value.elements.at(i).position;
+	}
+	if(value.elements.at(i).hasSpeed())
+	{
+		ros.velocity.at(i) = value.elements.at(i).speed;
+	}
+
+	if(value.elements.at(i).hasEffort())
+	{
+		ros.effort.at(i) = value.elements.at(i).effort;
+	}
+
+   }
 
 }
 
@@ -230,4 +247,45 @@ void ros_convertions::fromROS( ::base::JointsTrajectory& value, trajectory_msgs:
 	}
     
 }
+
+void ros_convertions::toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState const& value )
+{
+	toROS(ros.header.stamp, value.time);
+	
+	ros.header.frame_id = value.sourceFrame ;
+
+	ros.pose.position.x = value.position.x();
+	ros.pose.position.y = value.position.y();
+	ros.pose.position.z = value.position.z();
+	ros.pose.orientation.x = value.orientation.x();
+	ros.pose.orientation.y = value.orientation.y();
+	ros.pose.orientation.z = value.orientation.z();
+	ros.pose.orientation.w = value.orientation.w();
+
+}
+void ros_convertions::fromROS( ::base::samples::RigidBodyState& value, geometry_msgs::PoseStamped const& ros )
+{
+}
+void ros_convertions::toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState_m const& value )
+{
+	toROS(ros.header.stamp, value.time);
+	
+	ros.header.frame_id = value.sourceFrame ;
+
+	ros.pose.position.x = value.position.data[0];
+	ros.pose.position.y = value.position.data[1];
+	ros.pose.position.z = value.position.data[2];
+	ros.pose.orientation.x = value.orientation.im[0];
+	ros.pose.orientation.y = value.orientation.im[1];
+	ros.pose.orientation.z = value.orientation.im[2];
+	ros.pose.orientation.w = value.orientation.re;
+}
+void ros_convertions::fromROS( ::base::samples::RigidBodyState_m& value, geometry_msgs::PoseStamped const& ros )
+{
+}
+
+
+
+
+
 

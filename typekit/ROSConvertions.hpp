@@ -11,8 +11,10 @@
 #include <std_msgs/Time.h>
 #include <sensor_msgs/Image.h>
 #include <geometry_msgs/Pose.h>
+#include <geometry_msgs/PoseStamped.h>
 #include <sensor_msgs/JointState.h>
 #include <trajectory_msgs/JointTrajectory.h>
+
 
 namespace ros_convertions {
     /** Converted types: */
@@ -37,6 +39,14 @@ namespace ros_convertions {
 
     void toROS( trajectory_msgs::JointTrajectory& ros, ::base::JointsTrajectory const& value );
     void fromROS( ::base::JointsTrajectory& value, trajectory_msgs::JointTrajectory const& ros );
+
+    void toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState const& value );
+    void fromROS( ::base::samples::RigidBodyState& value, geometry_msgs::PoseStamped const& ros );
+    
+    void toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState_m const& value );
+    void fromROS( ::base::samples::RigidBodyState_m& value, geometry_msgs::PoseStamped const& ros );
+
+
 
 }
 
