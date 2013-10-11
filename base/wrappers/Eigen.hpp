@@ -1,11 +1,7 @@
 #ifndef BASE_TYPES_EIGEN_WRAPPERS_H
 #define BASE_TYPES_EIGEN_WRAPPERS_H
 
-#ifndef __orogen
 #include <vector>
-#include <Eigen/Core>
-#include <Eigen/Geometry> 
-#endif
 
 namespace wrappers
 {

@@ -1,6 +1,7 @@
 /* Generated from orogen/lib/orogen/templates/typekit/Opaques.cpp */
 
-#include "Opaques.hpp"
+#include <base/typekit/OpaqueConvertions.hpp>
+#include <base/typekit/OpaqueTypes.hpp>
 
 /** All the opaques convertion functions to/from eigen are templated in
  * Opaques.hpp

@@ -3,8 +3,6 @@
 #ifndef __OROGEN_GENERATED_base_USER_MARSHALLING_HH
 #define __OROGEN_GENERATED_base_USER_MARSHALLING_HH
 
-#include <base/Types.hpp>
-
 namespace orogen_typekits
 {
     template<typename T, int ROWS, int COLS, int EIGEN_OPTIONS, int EIGEN_MAX_ROWS, int EIGEN_MAX_COLS>

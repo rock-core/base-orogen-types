@@ -3,7 +3,7 @@
 #include <boost/test/auto_unit_test.hpp>
 #include <base/eigen.h>
 #include "base/wrappers/Eigen.hpp"
-#include "typekit/Opaques.hpp"
+#include "base/typekit/OpaqueConvertions.hpp"
 
 using namespace orogen_typekits;
 
