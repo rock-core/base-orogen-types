@@ -20,6 +20,7 @@ import_types_from "base/samples/Pointcloud.hpp"
 import_types_from "base/samples/DistanceImage.hpp"
 import_types_from "base/samples/Joints.hpp"
 import_types_from "base/JointLimits.hpp"
+import_types_from "base/JointTransform.hpp"
 import_types_from "base/JointsTrajectory.hpp"
 import_types_from "base/backward/base/actuators/status.h"
 import_types_from "base/backward/base/actuators/commands.h"
@@ -85,6 +86,8 @@ typekit do
         '/base/commands/Joints',
         '/base/JointState',
         '/base/JointLimits',
+        '/base/JointTransform',
+	'/base/JointTransformVector',
         '/base/JointsTrajectory',
         '/base/Trajectory',
         '/std/vector</base/Trajectory>',
