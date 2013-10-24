@@ -14,8 +14,6 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <sensor_msgs/JointState.h>
 #include <trajectory_msgs/JointTrajectory.h>
-#include <moveit_msgs/CollisionObject.h>
-
 
 
 namespace ros_convertions {
@@ -47,10 +45,6 @@ namespace ros_convertions {
     
     void toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState_m const& value );
     void fromROS( ::base::samples::RigidBodyState_m& value, geometry_msgs::PoseStamped const& ros );
-
-    void toROS( moveit_msgs::CollisionObject& ros, ::object_detection::PrimitiveObject const& value );
-    void fromROS( ::object_detection::PrimitiveObject& value, moveit_msgs::CollisionObject const& ros );
-
 
 
 

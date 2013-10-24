@@ -26,7 +26,6 @@ import_types_from "base/backward/base/actuators/status.h"
 import_types_from "base/backward/base/actuators/commands.h"
 import_types_from "base/backward/base/actuators/vehicles.h"
 import_types_from "base/backward/base/motion_command.h"
-import_types_from "object_detection/Objects.hpp"
 
 
 if has_library?('base-lib')
@@ -138,7 +137,6 @@ typekit do
         '/base/samples/Joints' => 'sensor_msgs/JointState',
         '/base/JointsTrajectory' => 'trajectory_msgs/JointTrajectory',
         '/base/samples/RigidBodyState' => 'geometry_msgs/PoseStamped',
-        '/base/Pose' => 'geometry_msgs/Pose',
-        '/object_detection/PrimitiveObject' => 'moveit_msgs/CollisionObject'
+        '/base/Pose' => 'geometry_msgs/Pose'
 end
 
