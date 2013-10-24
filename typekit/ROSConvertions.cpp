@@ -242,6 +242,8 @@ void ros_convertions::fromROS( ::base::JointsTrajectory& value, trajectory_msgs:
 				value.elements.at(i).at(j).position = ros.points.at(i).positions.at(j);
 
 				value.elements.at(i).at(j).speed = ros.points.at(i).velocities.at(j);
+				// need to consider in the future
+				value.elements.at(i).at(j).effort = ros.points.at(i).accelerations.at(j);
 		
 			}		
 	}
@@ -284,7 +286,45 @@ void ros_convertions::fromROS( ::base::samples::RigidBodyState_m& value, geometr
 {
 }
 
+void ros_convertions::toROS( moveit_msgs::CollisionObject& ros, ::object_detection::PrimitiveObject const& value )
+{
+    // todo: the below mapping is not a good solution. Need to modify for future use
 
+    if(value.type != 0)
+    {
+        // currently we consider one object only
+        ros.primitives.resize(1);
+        ros.primitive_poses.resize(1);
+
+        // object type 
+        // In ROS:  uint8 BOX=1 uint8 SPHERE=2 uint8 CYLINDER=3 uint8 CONE=4
+        // In Rock:  enum object_detection::types{INVALID = 0,BOX,CYLINDER}
+        if(value.type == 1)
+            ros.primitives.at(0).type = 1;      // box
+        else if(value.type == 2)
+            ros.primitives.at(0).type = 3;      // cylinder
+
+        // object dimension
+        ros.primitives.at(0).dimensions.resize(value.param.size());
+        for(int i = 0; i < value.param.size();i ++)
+            ros.primitives.at(0).dimensions.at(i) = value.param(i);
+
+        // object pose        
+       	ros.primitive_poses.at(0).position.x     = value.position.x();
+	    ros.primitive_poses.at(0).position.y     = value.position.y();
+	    ros.primitive_poses.at(0).position.z     = value.position.z();
+	    ros.primitive_poses.at(0).orientation.x  = value.orientation.x();
+	    ros.primitive_poses.at(0).orientation.y  = value.orientation.y();
+	    ros.primitive_poses.at(0).orientation.z  = value.orientation.z();
+	    ros.primitive_poses.at(0).orientation.w  = value.orientation.w();        
+
+    }
+    
+
+}
+
+void ros_convertions::fromROS( ::object_detection::PrimitiveObject& value, moveit_msgs::CollisionObject const& ros )
+{}
 
 
 
