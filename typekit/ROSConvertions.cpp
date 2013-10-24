@@ -288,42 +288,95 @@ void ros_convertions::fromROS( ::base::samples::RigidBodyState_m& value, geometr
 
 void ros_convertions::toROS( sensor_msgs::PointCloud2& ros, ::base::samples::Pointcloud const& value )
 {
-    //convert base::pointcloud to sensor_msgs::PointCloud2
+    // test mapping
 
-    ros.width   = static_cast<uint32_t>(value.points.size ());
-    ros.height  = 1;
+    int pointcloud_size = value.points.size();
 
-    // fill point cloud binary data
-    size_t data_size = 7 * sizeof (double) * value.points.size ();
-
-    ros.data.resize (data_size);
-
-    for (int i = 0; i < value.points.size(); i++)
+    if(pointcloud_size > 0)
     {
-        ros.data.at(i*7)       = value.points.at(i)[0];
-        ros.data.at((i*7)+1)   = value.points.at(i)[1];
-        ros.data.at((i*7)+2)   = value.points.at(i)[2];
-        ros.data.at((i*7)+3)   = value.colors.at(i)[0];
-        ros.data.at((i*7)+4)   = value.colors.at(i)[1];
-        ros.data.at((i*7)+5)   = value.colors.at(i)[2];
-        ros.data.at((i*7)+6)   = value.colors.at(i)[3];
-    }
+        
+        std::cout<<"point size = "<<value.points.size()<<"  colour size = "<<value.colors.size()<<std::endl;
+        //convert base::pointcloud to sensor_msgs::PointCloud2
 
-    // fields
-    ros.fields.resize(7);
-    ros.fields.at(0).name       = "X";
-    ros.fields.at(1).name       = "Y";
-    ros.fields.at(2).name       = "Z";
-    ros.fields.at(3).name       = "R";
-    ros.fields.at(4).name       = "G";
-    ros.fields.at(5).name       = "B";
-    ros.fields.at(6).name       = "a";
+        ros.width   = static_cast<uint32_t>(value.points.size ());
+        ros.height  = 1;
 
-    for(int i = 0; i < 7; i++)
-    {
-        ros.fields.at(i).offset     = i;
-        ros.fields.at(i).datatype   = 8;
-        ros.fields.at(i).count      = 1;
+        std::cout<<"ros.width = "<<ros.width<<std::endl;
+
+        if(pointcloud_size == value.colors.size())
+        {
+            // fill point cloud binary data
+            size_t data_size = 7 * sizeof (double) * value.points.size ();
+
+            std::cout<<"data_size = "<<data_size<<std::endl;
+            ros.data.resize(data_size);
+
+            for (int i = 0; i < value.points.size(); i++)
+            {
+                ros.data.at(i*7)       = value.points.at(i)[0];
+                ros.data.at((i*7)+1)   = value.points.at(i)[1];
+                ros.data.at((i*7)+2)   = value.points.at(i)[2];
+                ros.data.at((i*7)+3)   = value.colors.at(i)[0];
+                ros.data.at((i*7)+4)   = value.colors.at(i)[1];
+                ros.data.at((i*7)+5)   = value.colors.at(i)[2];
+                ros.data.at((i*7)+6)   = value.colors.at(i)[3];
+            }
+
+            // fields
+            ros.fields.resize(7);
+            ros.fields.at(0).name       = "X";
+            ros.fields.at(1).name       = "Y";
+            ros.fields.at(2).name       = "Z";
+            ros.fields.at(3).name       = "R";
+            ros.fields.at(4).name       = "G";
+            ros.fields.at(5).name       = "B";
+            ros.fields.at(6).name       = "a";
+
+            for(int i = 0; i < 7; i++)
+            {
+                ros.fields.at(i).offset     = i;
+                ros.fields.at(i).datatype   = 8;
+                ros.fields.at(i).count      = 1;
+            }
+        }
+        else if (value.colors.size() == 0)
+        {
+            size_t data_size = 3 * sizeof (double) * value.points.size ();
+
+            std::cout<<"data_size = "<<data_size<<std::endl;
+            ros.data.resize(data_size);
+            std::cout<<"data_size ros= "<<ros.data.size()<<std::endl;
+	    
+	    memcpy(&ros.data[0], &value.points[0], data_size);
+
+            /*for (int i = 0; i < value.points.size(); i++)
+            {
+                ros.data.at(i*3)       = static_cast<uint_8t> value.points.at(i).x();
+                ros.data.at((i*3)+1)   = value.points.at(i).y();
+                ros.data.at((i*3)+2)   = value.points.at(i).z();
+
+		//std::cout<< value.points.at(i).x()<<std::endl;
+		std::cout<< ros.data.at(i*3)<<"  "<<ros.data.at((i*3)+1)<<std::endl;
+            }*/
+		std::cout<< ros.data.at(0)<<"  "<<ros.data.at(3)<<std::endl;
+
+	    
+
+            // fields
+            ros.fields.resize(3);
+            ros.fields.at(0).name       = "X";
+            ros.fields.at(1).name       = "Y";
+            ros.fields.at(2).name       = "Z";
+
+            for(int i = 0; i < 3; i++)
+            {
+                ros.fields.at(i).offset     = i;
+                ros.fields.at(i).datatype   = 8;
+                ros.fields.at(i).count      = 1;
+            }
+            
+        }
+    
     }
 
 }
