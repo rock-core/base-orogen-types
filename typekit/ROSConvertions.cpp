@@ -286,6 +286,51 @@ void ros_convertions::fromROS( ::base::samples::RigidBodyState_m& value, geometr
 
 
 
+void ros_convertions::toROS( sensor_msgs::PointCloud2& ros, ::base::samples::Pointcloud const& value )
+{
+    //convert base::pointcloud to sensor_msgs::PointCloud2
+
+    ros.width   = static_cast<uint32_t>(value.points.size ());
+    ros.height  = 1;
+
+    // fill point cloud binary data
+    size_t data_size = 7 * sizeof (double) * value.points.size ();
+
+    ros.data.resize (data_size);
+
+    for (int i = 0; i < value.points.size(); i++)
+    {
+        ros.data.at(i*7)       = value.points.at(i)[0];
+        ros.data.at((i*7)+1)   = value.points.at(i)[1];
+        ros.data.at((i*7)+2)   = value.points.at(i)[2];
+        ros.data.at((i*7)+3)   = value.colors.at(i)[0];
+        ros.data.at((i*7)+4)   = value.colors.at(i)[1];
+        ros.data.at((i*7)+5)   = value.colors.at(i)[2];
+        ros.data.at((i*7)+6)   = value.colors.at(i)[3];
+    }
+
+    // fields
+    ros.fields.resize(7);
+    ros.fields.at(0).name       = "X";
+    ros.fields.at(1).name       = "Y";
+    ros.fields.at(2).name       = "Z";
+    ros.fields.at(3).name       = "R";
+    ros.fields.at(4).name       = "G";
+    ros.fields.at(5).name       = "B";
+    ros.fields.at(6).name       = "a";
+
+    for(int i = 0; i < 7; i++)
+    {
+        ros.fields.at(i).offset     = i;
+        ros.fields.at(i).datatype   = 8;
+        ros.fields.at(i).count      = 1;
+    }
+
+}
+void ros_convertions::fromROS( ::base::samples::Pointcloud& value, sensor_msgs::PointCloud2 const& ros )
+{
+}
+
 
 
 
