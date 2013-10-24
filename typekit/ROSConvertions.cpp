@@ -178,13 +178,13 @@ void ros_convertions::fromROS( ::base::samples::Joints& value, sensor_msgs::Join
 
 void ros_convertions::toROS( geometry_msgs::Pose& ros, ::base::Pose  const& value )
 {
-        ros.position.x = value.position.x();
-        ros.position.y = value.position.y();
-        ros.position.z = value.position.z();
-        ros.orientation.x = value.orientation.x();
-        ros.orientation.y = value.orientation.y();
-        ros.orientation.z = value.orientation.z();
-        ros.orientation.w = value.orientation.w();
+    ros.position.x = value.position.x();
+    ros.position.y = value.position.y();
+    ros.position.z = value.position.z();
+    ros.orientation.x = value.orientation.x();
+    ros.orientation.y = value.orientation.y();
+    ros.orientation.z = value.orientation.z();
+    ros.orientation.w = value.orientation.w();
 }
 
 void ros_convertions::fromROS( ::base::Pose& value, geometry_msgs::Pose const& ros )
