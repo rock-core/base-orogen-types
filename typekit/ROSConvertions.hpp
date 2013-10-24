@@ -15,6 +15,7 @@
 #include <sensor_msgs/JointState.h>
 #include <trajectory_msgs/JointTrajectory.h>
 #include <moveit_msgs/CollisionObject.h>
+#include <sensor_msgs/PointCloud2.h>
 
 
 
@@ -50,6 +51,9 @@ namespace ros_convertions {
 
     void toROS( moveit_msgs::CollisionObject& ros, ::object_detection::PrimitiveObject const& value );
     void fromROS( ::object_detection::PrimitiveObject& value, moveit_msgs::CollisionObject const& ros );
+
+    void toROS( sensor_msgs::PointCloud2& ros, ::base::samples::Pointcloud const& value );
+    void fromROS( ::base::samples::Pointcloud& value, sensor_msgs::PointCloud2 const& ros );
 
 
 
