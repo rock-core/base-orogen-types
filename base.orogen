@@ -61,6 +61,8 @@ import_types_from "base/samples/IMUSensors.hpp"
 import_types_from "base/samples/RigidBodyState.hpp"
 import_types_from "base/samples/RigidBodyAcceleration.hpp"
 
+import_types_from "base/samples/CommandSamples.hpp"
+
 max_sizes '/base/samples/RigidBodyState', 'sourceFrame' => 32, 'targetFrame' => 32
 
 # Explicitely intanciate ro_ptr wrappers for Frame and FramePair as it is the
@@ -87,13 +89,13 @@ typekit do
         '/base/JointState',
         '/base/JointLimits',
         '/base/JointTransform',
-	'/base/JointTransformVector',
+        '/base/JointTransformVector',
         '/base/JointsTrajectory',
         '/base/Trajectory',
         '/std/vector</base/Trajectory>',
         '/base/samples/Joints',
-	'/base/samples/Pointcloud',
-	'/base/samples/DistanceImage',
+        '/base/samples/Pointcloud',
+        '/base/samples/DistanceImage',
         '/base/samples/LaserScan',
         '/base/samples/SonarBeam',
         '/base/samples/SonarScan',
@@ -103,6 +105,7 @@ typekit do
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
+        '/base/samples/Motion2D',
         '/base/actuators/Status',
         '/base/actuators/Command',
         '/base/geometry/Spline<1>',
@@ -114,20 +117,20 @@ typekit do
         '/base/Waypoint',
         '/std/vector</base/Waypoint>',
         '/std/vector</uint32_t>',
-	'/base/Vector2d',
+        '/base/Vector2d',
         '/base/Vector3d',
         '/base/Vector4d',
         '/base/Vector6d',
         '/base/VectorXd',
-	'/base/Matrix3d',
+        '/base/Matrix3d',
         '/base/Matrix4d',
         '/base/Matrix6d',
         '/base/MatrixXd',
         '/base/Quaterniond',
         '/std/string',
         '/base/Angle',
-	'/base/Temperature',
-	'/std/vector</std/string>'
+        '/base/Temperature',
+        '/std/vector</std/string>'
 
     ros_mappings \
         '/std/string' => 'std_msgs/String',
