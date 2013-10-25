@@ -3,7 +3,7 @@
 #ifndef __OROGEN_GENERATED_BASE_ROS_CONVERTIONS_USER_HPP
 #define __OROGEN_GENERATED_BASE_ROS_CONVERTIONS_USER_HPP
 
-#include "Types.hpp"
+#include <base/typekit/Types.hpp>
 #include <boost/cstdint.hpp>
 #include <string>
 
