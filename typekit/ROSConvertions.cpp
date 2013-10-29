@@ -300,9 +300,9 @@ void ros_convertions::toROS( sensor_msgs::PointCloud2& ros, ::base::samples::Poi
     for(uint i = 0; i < n_points; i++)
     {
         tmp.at(i*4)     = value.points.at(i).x();
-        tmp.at(i*4+1) = value.points.at(i).y();
-        tmp.at(i*4+2) = value.points.at(i).z();
-        tmp.at(i*4+3) = 1.0; // intensity
+        tmp.at(i*4+1)   = value.points.at(i).y();
+        tmp.at(i*4+2)   = value.points.at(i).z();
+        tmp.at(i*4+3)   = 1.0; // intensity
     }    
 
     int point_dims          = 4;
@@ -340,7 +340,4 @@ void ros_convertions::toROS( sensor_msgs::PointCloud2& ros, ::base::samples::Poi
 void ros_convertions::fromROS( ::base::samples::Pointcloud& value, sensor_msgs::PointCloud2 const& ros )
 {
 }
-
-
-
 
