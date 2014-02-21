@@ -227,22 +227,20 @@ void ros_convertions::toROS( trajectory_msgs::JointTrajectory& ros, ::base::Join
 
 void ros_convertions::fromROS( ::base::JointsTrajectory& value, trajectory_msgs::JointTrajectory const& ros )
 {	
-
-	value.elements.resize(ros.points.size());
-    	
+    int num_joints = ros.points.at(0).positions.size();
+    int num_samples = ros.points.size();
+    
+    //Resize Base types trajectory accordingly
+    value.resize(num_joints, num_samples);
 	value.names = ros.joint_names;
     	
 
-	for(int i = 0; i < ros.points.size(); i++)
+	for(int i = 0; i < num_samples; i++)
 	{
-		value.elements.at(i).resize(ros.points.at(i).positions.size());
-
-			for(int j = 0; j < ros.points.at(i).positions.size(); j++)
+			for(int j = 0; j < num_joints; j++)
 			{	    	
-				value.elements.at(i).at(j).position = ros.points.at(i).positions.at(j);
-
-				value.elements.at(i).at(j).speed = ros.points.at(i).velocities.at(j);
-		
+				value.elements.at(j).at(i).position = ros.points.at(i).positions.at(j);
+				value.elements.at(j).at(i).speed = ros.points.at(i).velocities.at(j);
 			}		
 	}
     
