@@ -5,6 +5,7 @@
         systems. This package wraps these types for use in other orogen projects.
     </description>
   <author>Sylvain Joyeux/sylvain.joyeux@m4x.org</author>
+  <url>https://gitorious.org/rock-base/types</url>
   <copyright>
         DFKI/robotik@dfki.de
         Sylvain Joyeux/sylvain.joyeux@m4x.org
