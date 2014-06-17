@@ -2,7 +2,7 @@ pkg_check_modules(BASE REQUIRED "base-lib")
 include_directories(${BASE_INCLUDE_DIRS})
 link_directories(${BASE_LIBRARY_DIRS})
 
-pkg_check_modules(STD REQUIRED "std-typekit-gnulinux")
+pkg_check_modules(STD REQUIRED "std-typekit-${OROCOS_TARGET}")
 include_directories(${STD_INCLUDE_DIRS})
 
 add_definitions("-DOROCOS_TARGET=${OROCOS_TARGET}")
