@@ -108,6 +108,7 @@ typekit do
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
         '/base/samples/Wrench',
+        '/base/samples/Wrenches',
         '/base/samples/Motion2D',
         '/base/actuators/Status',
         '/base/actuators/Command',
