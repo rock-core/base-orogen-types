@@ -19,7 +19,9 @@ import_types_from "base/samples/SonarScan.hpp"
 import_types_from "base/samples/Pointcloud.hpp"
 import_types_from "base/samples/DistanceImage.hpp"
 import_types_from "base/samples/Joints.hpp"
+import_types_from "base/Wrench.hpp"
 import_types_from "base/samples/Wrench.hpp"
+import_types_from "base/samples/Wrenches.hpp"
 import_types_from "base/JointState.hpp"
 import_types_from "base/JointLimits.hpp"
 import_types_from "base/JointTransform.hpp"
@@ -107,7 +109,9 @@ typekit do
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
+        '/base/Wrench',
         '/base/samples/Wrench',
+        '/base/samples/Wrenches',
         '/base/samples/Motion2D',
         '/base/actuators/Status',
         '/base/actuators/Command',
