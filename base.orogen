@@ -5,6 +5,7 @@ using_library 'base-types'
 
 # Common types that are not opaques
 import_types_from "base/Temperature.hpp"
+import_types_from "base/Pressure.hpp"
 import_types_from "base/Time.hpp"
 import_types_from "base/Trajectory.hpp"
 import_types_from "base/commands/AUVMotion.hpp"
@@ -12,6 +13,7 @@ import_types_from "base/commands/Motion2D.hpp"
 import_types_from "base/commands/AUVPosition.hpp"
 import_types_from "base/commands/Speed6D.hpp"
 import_types_from "base/commands/Joints.hpp"
+import_types_from "base/samples/Pressure.hpp"
 import_types_from "base/samples/Frame.hpp"
 import_types_from "base/samples/LaserScan.hpp"
 import_types_from "base/samples/SonarBeam.hpp"
@@ -136,6 +138,8 @@ typekit do
         '/std/string',
         '/base/Angle',
         '/base/Temperature',
+        '/base/Pressure',
+        '/base/samples/Pressure',
         '/std/vector</std/string>'
 
     ros_mappings \
