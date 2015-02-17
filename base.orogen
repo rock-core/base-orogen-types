@@ -25,6 +25,7 @@ import_types_from "base/Wrench.hpp"
 import_types_from "base/samples/Wrench.hpp"
 import_types_from "base/samples/Wrenches.hpp"
 import_types_from "base/samples/DepthMap.hpp"
+import_types_from "base/TransformWithUncertainty.hpp"
 import_types_from "base/JointState.hpp"
 import_types_from "base/JointLimits.hpp"
 import_types_from "base/JointTransform.hpp"
@@ -113,6 +114,7 @@ typekit do
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
+        '/base/TransformWithUncertainty',
         '/base/Wrench',
         '/base/samples/Wrench',
         '/base/samples/Wrenches',
