@@ -59,14 +59,18 @@ typekit.opaque_type '/base/Matrix4d', 'wrappers/Matrix4d'
 typekit.opaque_type '/base/Matrix6d', 'wrappers/Matrix6d'
 typekit.opaque_type '/base/MatrixXd', 'wrappers/MatrixXd'
 typekit.opaque_type '/base/VectorXd', 'wrappers/VectorXd'
+typekit.opaque_type '/base/Affine3d', 'wrappers/Matrix4d'
 if has_library?('base-lib')
     import_types_from "base/geometry/Spline.hpp"
 end
+import_types_from "base/Twist.hpp"
+import_types_from "base/Transformation.hpp"
 import_types_from "base/Pose.hpp"
 import_types_from "base/Waypoint.hpp"
 import_types_from "base/samples/IMUSensors.hpp"
 import_types_from "base/samples/RigidBodyState.hpp"
 import_types_from "base/samples/RigidBodyAcceleration.hpp"
+import_types_from "base/samples/BodyState.hpp"
 
 import_types_from "base/samples/CommandSamples.hpp"
 
@@ -109,6 +113,9 @@ typekit do
         '/base/samples/frame/FramePair',
         '/base/samples/frame/frame_mode_t',
         '/base/samples/frame/Frame',
+        '/base/Twist',
+        '/base/Transformation',
+        '/base/samples/BodyState',
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
@@ -137,6 +144,7 @@ typekit do
         '/base/Matrix6d',
         '/base/MatrixXd',
         '/base/Quaterniond',
+        '/base/Affine3d',
         '/std/string',
         '/base/Angle',
         '/base/Temperature',

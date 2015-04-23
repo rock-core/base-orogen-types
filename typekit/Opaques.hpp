@@ -98,8 +98,11 @@ namespace orogen_typekits
     void toIntermediate(::wrappers::geometry::Spline& intermediate, ::base::geometry::SplineBase const& real_type);
 
     void fromIntermediate(::base::geometry::SplineBase& real_type, ::wrappers::geometry::Spline const& intermediate);
-    
-    
+
+
+    void toIntermediate(::wrappers::Matrix<double, 4, 4>& intermediate, ::base::Affine3d const& real);
+
+    void fromIntermediate(::base::Affine3d& real, wrappers::Matrix<double, 4, 4> const& intermediate);
 }
 
 #endif
