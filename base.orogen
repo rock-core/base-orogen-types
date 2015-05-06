@@ -63,8 +63,8 @@ typekit.opaque_type '/base/Affine3d', 'wrappers/Matrix4d'
 if has_library?('base-lib')
     import_types_from "base/geometry/Spline.hpp"
 end
-import_types_from "base/Twist.hpp"
-import_types_from "base/Transformation.hpp"
+import_types_from "base/TwistWithCovariance.hpp"
+import_types_from "base/TransformWithCovariance.hpp"
 import_types_from "base/Pose.hpp"
 import_types_from "base/Waypoint.hpp"
 import_types_from "base/samples/IMUSensors.hpp"
@@ -113,8 +113,8 @@ typekit do
         '/base/samples/frame/FramePair',
         '/base/samples/frame/frame_mode_t',
         '/base/samples/frame/Frame',
-        '/base/Twist',
-        '/base/Transformation',
+        '/base/TwistWithCovariance',
+        '/base/TransformWithCovariance',
         '/base/samples/BodyState',
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
