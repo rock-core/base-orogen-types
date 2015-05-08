@@ -99,23 +99,10 @@ namespace orogen_typekits
 
     void fromIntermediate(::base::geometry::SplineBase& real_type, ::wrappers::geometry::Spline const& intermediate);
 
-    template<typename T, int DIM, int EIGEN_OPTIONS>
-    void toIntermediate(::wrappers::Matrix<T,DIM+1,DIM+1>& intermediate, ::Eigen::Transform<T, DIM, ::Eigen::Affine, EIGEN_OPTIONS> const& real)
-    {
-        typedef Eigen::Matrix<T,DIM+1,DIM+1,EIGEN_OPTIONS> EigenMatrix;
 
-        Eigen::Map<EigenMatrix> m(&(intermediate.data[0]),DIM+1,DIM+1);
-        m = real.matrix();
-    }
+    void toIntermediate(::wrappers::Matrix<double, 4, 4>& intermediate, ::base::Affine3d const& real);
 
-    template<typename T, int DIM, int EIGEN_OPTIONS>
-    void fromIntermediate(::Eigen::Transform<T, DIM, ::Eigen::Affine, EIGEN_OPTIONS> real, ::wrappers::Matrix<T,DIM+1,DIM+1> const& intermediate)
-    {
-        typedef const Eigen::Matrix<T,DIM+1,DIM+1,EIGEN_OPTIONS> EigenMatrix;
-
-        Eigen::Map<EigenMatrix> m(&(intermediate.data[0]),DIM+1,DIM+1);
-        real.matrix() = m;
-    }
+    void fromIntermediate(::base::Affine3d& real, wrappers::Matrix<double, 4, 4> const& intermediate);
 }
 
 #endif

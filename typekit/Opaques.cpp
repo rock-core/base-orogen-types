@@ -20,3 +20,14 @@ void orogen_typekits::fromIntermediate(::base::geometry::SplineBase& real_type, 
     real_type = result;
 }
 
+
+void orogen_typekits::toIntermediate(::wrappers::Matrix<double, 4, 4>& intermediate, ::base::Affine3d const& real)
+{
+    return toIntermediate<double, 4, 4> (intermediate, real.matrix());
+}
+
+void orogen_typekits::fromIntermediate(::base::Affine3d& real, wrappers::Matrix<double, 4, 4> const& intermediate)
+{
+    return fromIntermediate<double, 4, 4> (real.matrix(), intermediate);
+}
+
