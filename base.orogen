@@ -77,6 +77,13 @@ max_sizes '/base/samples/RigidBodyState', 'sourceFrame' => 32, 'targetFrame' => 
 typekit do
     roptr_frame_t     = ro_ptr('/base/samples/frame/Frame')
     roptr_framepair_t = ro_ptr('/base/samples/frame/FramePair')
+    if type_export_policy == :all
+        # Currently the all export from orogen is broken, throw a warning and falling back to selected
+        OroGen.warn "base/orogen/type export is requested with exporting all types, but this is not supported yet"
+        OroGen.warn "falling back to :selected."
+        OroGen.warn "For Details see: https://github.com/orocos-toolchain/orogen/issues/50"
+        type_export_policy :selected
+    end
 
     if type_export_policy == :used
         # We assume that, if the caller wants a 'used' type policy, it means he
