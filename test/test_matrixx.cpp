@@ -10,14 +10,14 @@ using namespace orogen_typekits;
 BOOST_AUTO_TEST_CASE ( matrixxd_to_intermediate ) {
 
     base::MatrixXd m = base::MatrixXd::Random(3,6);
-    
+
     wrappers::MatrixXd w;
 
     toIntermediate(w, m);
 
-    BOOST_CHECK ( m.size() == w.data.size() );
-    BOOST_CHECK ( m.rows() == w.rows );
-    BOOST_CHECK ( m.cols() == w.cols );
+    BOOST_CHECK ( m.size() == static_cast<unsigned short>(w.data.size()) );
+    BOOST_CHECK ( m.rows() == static_cast<unsigned short>(w.rows) );
+    BOOST_CHECK ( m.cols() == static_cast<unsigned short>(w.cols) );
 
     for ( int j = 0; j<m.cols(); j++)
         for ( int i = 0; i<m.rows(); i++)
@@ -39,19 +39,19 @@ BOOST_AUTO_TEST_CASE ( matrixxd_from_intermediate ) {
 
     fromIntermediate(m, w);
 
-    BOOST_CHECK ( m.size() == w.data.size() );
-    BOOST_CHECK ( m.rows() == w.rows );
-    BOOST_CHECK ( m.cols() == w.cols );
-    
+    BOOST_CHECK ( m.size() == static_cast<unsigned short>(w.data.size()) );
+    BOOST_CHECK ( m.rows() == static_cast<unsigned short>(w.rows) );
+    BOOST_CHECK ( m.cols() == static_cast<unsigned short>(w.cols) );
+
     for ( int j = 0; j<m.cols(); j++)
         for ( int i = 0; i<m.rows(); i++)
             BOOST_CHECK( m(i,j) == w.data[i+j*m.rows()] );
 }
 
 BOOST_AUTO_TEST_CASE ( matrixxd ) {
-    
+
     base::MatrixXd m = base::MatrixXd::Random(3,6), r;
-    
+
     wrappers::MatrixXd w;
 
     toIntermediate(w, m);
@@ -64,12 +64,12 @@ BOOST_AUTO_TEST_CASE ( matrixxd ) {
 BOOST_AUTO_TEST_CASE ( vectorxd_to_intermediate ) {
 
     base::VectorXd v = base::VectorXd::Random(8);
-    
+
     wrappers::VectorXd w;
 
     toIntermediate(w, v);
 
-    BOOST_CHECK ( v.size() == w.data.size() );
+    BOOST_CHECK ( v.size() == static_cast<unsigned short>(w.data.size()) );
 
     for ( int j = 0; j<v.size(); j++)
         BOOST_CHECK( v[j] == w.data[j] );
@@ -88,16 +88,16 @@ BOOST_AUTO_TEST_CASE ( vectorxd_from_intermediate ) {
 
     fromIntermediate(v, w);
 
-    BOOST_CHECK ( v.size() == w.data.size() );
+    BOOST_CHECK ( v.size() == static_cast<unsigned short>(w.data.size()) );
     for ( int j = 0; j<v.size(); j++)
         BOOST_CHECK( v[j] == w.data[j] );
-    
+
 }
 
 BOOST_AUTO_TEST_CASE ( vectorxd ) {
-    
+
     base::VectorXd v = base::VectorXd::Random(23), r;
-    
+
     wrappers::VectorXd w;
 
     toIntermediate(w, v);
