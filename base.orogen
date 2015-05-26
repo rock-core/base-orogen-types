@@ -53,6 +53,7 @@ typekit.opaque_type '/base/Vector3d', 'wrappers/Vector3d'
 typekit.opaque_type '/base/Vector4d', 'wrappers/Vector4d'
 typekit.opaque_type '/base/Vector6d', 'wrappers/Vector6d'
 typekit.opaque_type '/base/Quaterniond', 'wrappers/Quaterniond'
+typekit.opaque_type '/base/AngleAxisd', 'wrappers/AngleAxisd'
 typekit.opaque_type '/base/Matrix2d', 'wrappers/Matrix2d'
 typekit.opaque_type '/base/Matrix3d', 'wrappers/Matrix3d'
 typekit.opaque_type '/base/Matrix4d', 'wrappers/Matrix4d'
@@ -144,6 +145,7 @@ typekit do
         '/base/Matrix6d',
         '/base/MatrixXd',
         '/base/Quaterniond',
+        '/base/AngleAxisd',
         '/base/Affine3d',
         '/std/string',
         '/base/Angle',
