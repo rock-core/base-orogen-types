@@ -45,6 +45,18 @@ namespace wrappers
         _Scalar re;
     };
 
+    /**
+     * Wrapper class for Eigen AngleAxis
+     */ 
+    template<typename _Scalar>
+    struct AngleAxis
+    {
+        // store as angle and axis part, so it comes out clear in the pocosim logs
+        _Scalar angle;
+        _Scalar axis[3];
+    };
+
+
     /** This is needed to that GCCXML sees the particular template instances,
      * and so, so that we can typedef them below
      */
@@ -59,6 +71,7 @@ namespace wrappers
         Matrix<double, 4, 1> vector4;
         Matrix<double, 6, 1> vector6;
         Quaternion<double>   quaternion;
+        AngleAxis<double>   angleaxis;
         VectorX<double> vectorx;
         MatrixX<double> matrixx;
     };
@@ -73,6 +86,7 @@ namespace wrappers
     typedef Matrix<double, 4, 1> Vector4d;
     typedef Matrix<double, 6, 1> Vector6d;
     typedef Quaternion<double>   Quaterniond;
+    typedef AngleAxis<double>   AngleAxisd;
     typedef VectorX<double> VectorXd;
     typedef MatrixX<double> MatrixXd;
 }
