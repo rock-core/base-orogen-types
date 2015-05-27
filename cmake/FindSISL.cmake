@@ -5,16 +5,10 @@ if (NOT SISL_PREFIX)
     set(SISL_PREFIX ${CMAKE_INSTALL_PREFIX} CACHE FILEPATH "the installation prefix for the SISL library")
 endif()
 
-if(APPLE)
-  set(LIB_SUFFIX "dylib")
-else(APPLE)
-  set(LIB_SUFFIX "so")
-endif(APPLE)
-
 find_path(SISL_INCLUDE_DIRS "sisl.h"
     HINTS ${SISL_PREFIX}/include ${CMAKE_INSTALL_PREFIX}/include)
 find_library(SISL_LIBRARIES
-    NAMES libsisl.${LIB_SUFFIX} libsisl_opt.${LIB_SUFFIX} libsisl.a libsisl_opt.a
+    NAMES libsisl${CMAKE_SHARED_LIBRARY_SUFFIX} libsisl_opt${CMAKE_SHARED_LIBRARY_SUFFIX} libsisl.a libsisl_opt.a
     HINTS ${SISL_PREFIX}/lib ${CMAKE_INSTALL_PREFIX}/lib)
 
 include(FindPackageHandleStandardArgs)
