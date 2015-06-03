@@ -26,7 +26,7 @@ endif()
 
 INCLUDE(baseBase)
 
-FIND_PACKAGE(Boost COMPONENTS unit_test_framework)
+FIND_PACKAGE(Boost COMPONENTS unit_test_framework system)
 IF (Boost_UNIT_TEST_FRAMEWORK_FOUND)
     MESSAGE(STATUS "boost/test found ... building test suite")
     ADD_SUBDIRECTORY(test)
