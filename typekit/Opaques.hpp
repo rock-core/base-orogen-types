@@ -38,6 +38,9 @@ namespace orogen_typekits
     {
         typedef const Eigen::Matrix<T,ROWS,COLS,EIGEN_OPTIONS,EIGEN_MAX_ROWS,EIGEN_MAX_COLS> EigenMatrix;
         
+        if (static_cast<int>(intermediate.data.size()) != intermediate.rows * intermediate.cols)
+            throw std::logic_error("vector size does not match rows and cols in /wrappers/MatrixX");
+
         Eigen::Map<EigenMatrix> m(&(intermediate.data[0]),intermediate.rows, intermediate.cols);
         real = m;
     }
