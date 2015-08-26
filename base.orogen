@@ -18,6 +18,7 @@ import_types_from "base/samples/Frame.hpp"
 import_types_from "base/samples/LaserScan.hpp"
 import_types_from "base/samples/SonarBeam.hpp"
 import_types_from "base/samples/SonarScan.hpp"
+import_types_from "base/samples/Sonar.hpp"
 import_types_from "base/samples/Pointcloud.hpp"
 import_types_from "base/samples/DistanceImage.hpp"
 import_types_from "base/samples/Joints.hpp"
@@ -113,6 +114,7 @@ typekit do
         '/base/samples/LaserScan',
         '/base/samples/SonarBeam',
         '/base/samples/SonarScan',
+        '/base/samples/Sonar',
         '/base/samples/frame/FramePair',
         '/base/samples/frame/frame_mode_t',
         '/base/samples/frame/Frame',
