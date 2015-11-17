@@ -24,7 +24,7 @@ namespace ros_convertions {
 
     void toROS( sensor_msgs::Image& ros, ::RTT::extras::ReadOnlyPointer< ::base::samples::frame::Frame > const& value );
     void fromROS( ::RTT::extras::ReadOnlyPointer< ::base::samples::frame::Frame >& value, sensor_msgs::Image const& ros );
-    
+
     void toROS( sensor_msgs::Image& ros, ::base::samples::frame::Frame const& value );
     void fromROS( ::base::samples::frame::Frame& value, sensor_msgs::Image const& ros );
 
@@ -33,7 +33,7 @@ namespace ros_convertions {
 
     void toROS( geometry_msgs::Pose& ros, ::base::Pose_m const& value );
     void fromROS( ::base::Pose_m& value, geometry_msgs::Pose const& ros );
-    
+
     void toROS( sensor_msgs::JointState& ros, ::base::samples::Joints const& value );
     void fromROS( ::base::samples::Joints& value, sensor_msgs::JointState const& ros );
 
@@ -42,7 +42,7 @@ namespace ros_convertions {
 
     void toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState const& value );
     void fromROS( ::base::samples::RigidBodyState& value, geometry_msgs::PoseStamped const& ros );
-    
+
     void toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState_m const& value );
     void fromROS( ::base::samples::RigidBodyState_m& value, geometry_msgs::PoseStamped const& ros );
 

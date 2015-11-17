@@ -78,6 +78,14 @@ class TC_TypelibConvertions < Test::Unit::TestCase
         assert_equal([10, 100, 1000], value.im.to_a)
     end
 
+    def test_transform_with_covariance_to_ruby
+        matrix4d_t = registry.get '/wrappers/Matrix4d'
+        value = matrix4d_t.new
+        value.data = [1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+
+        matrix4d = Typelib.to_ruby(value)
+    end
+
     def test_matrixx_to_ruby
         matrixxd_t = registry.get '/wrappers/MatrixXd'
         value = matrixxd_t.new
@@ -92,7 +100,7 @@ class TC_TypelibConvertions < Test::Unit::TestCase
         assert_equal(matrixxd.cols(),3)
         assert_equal([1.0,2.0,3.0,4.0,5.0,6.0],matrixxd.to_a)
     end
-    
+
     def test_matrixx_from_ruby
         matrixxd_t = registry.get '/wrappers/MatrixXd'
         matrixxd = Eigen::MatrixX.new(2,3)
@@ -103,10 +111,9 @@ class TC_TypelibConvertions < Test::Unit::TestCase
         assert_equal(value.rows,2)
         assert_equal(value.cols,3)
         assert_equal(value.data.to_a, [1.0,2.0,3.0,4.0,5.0,6.0])
-        
 
     end
-    
+
     def test_vectorx_to_ruby
         matrixxd_t = registry.get '/wrappers/VectorXd'
         value = matrixxd_t.new

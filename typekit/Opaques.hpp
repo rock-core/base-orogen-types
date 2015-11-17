@@ -98,11 +98,32 @@ namespace orogen_typekits
         real.z() = intermediate.im[2];
     }
 
+    template<typename T>
+    void toIntermediate(::wrappers::AngleAxis<T>& intermediate, ::Eigen::AngleAxis<T> const& real)
+    {
+        intermediate.angle = real.angle();
+        intermediate.axis[0] = real.axis()[0];
+        intermediate.axis[1] = real.axis()[1];
+        intermediate.axis[2] = real.axis()[2];
+    }
+
+    template<typename T>
+    void fromIntermediate(::Eigen::AngleAxis<T>& real, ::wrappers::AngleAxis<T> const& intermediate)
+    {
+        real.angle() = intermediate.angle;
+        real.axis()[0] = intermediate.axis[0];
+        real.axis()[1] = intermediate.axis[1];
+        real.axis()[2] = intermediate.axis[2];
+    }
+
     void toIntermediate(::wrappers::geometry::Spline& intermediate, ::base::geometry::SplineBase const& real_type);
 
     void fromIntermediate(::base::geometry::SplineBase& real_type, ::wrappers::geometry::Spline const& intermediate);
-    
-    
+
+
+    void toIntermediate(::wrappers::Matrix<double, 4, 4>& intermediate, ::base::Affine3d const& real);
+
+    void fromIntermediate(::base::Affine3d& real, wrappers::Matrix<double, 4, 4> const& intermediate);
 }
 
 #endif
