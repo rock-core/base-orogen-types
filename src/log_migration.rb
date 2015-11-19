@@ -37,10 +37,20 @@ LogTools::Converter.register "converter for non base type MultilevelLaserScan", 
                     vertical_index += 1
                 end
                 dst.timestamps << horizontal_entry.time
+                dst.time = horizontal_entry.time
                 dst.horizontal_interval << horizontal_entry.horizontal_angle.rad
                 horizontal_index += 1
             end
 
         end
+    end
+end
+
+LogTools::Converter.register "converter for DepthMap missing the time field", Time.now, Orocos.registry do
+    conversion "/base/samples/DepthMap","/base/samples/DepthMap" do |dst,src|
+        if dst.class.has_field?('time') and not src.class.has_field?('time') and not src.timestamps.empty? then
+            dst.time = src.timestamps.last
+        end
+        deep_cast(dst,src,:self)
     end
 end
