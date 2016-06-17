@@ -30,11 +30,6 @@ import_types_from "base/JointState.hpp"
 import_types_from "base/JointLimits.hpp"
 import_types_from "base/JointTransform.hpp"
 import_types_from "base/JointsTrajectory.hpp"
-import_types_from "base/backward/base/actuators/status.h"
-import_types_from "base/backward/base/actuators/commands.h"
-import_types_from "base/backward/base/actuators/vehicles.h"
-import_types_from "base/backward/base/motion_command.h"
-
 
 if has_library?('base-lib')
     using_library 'base-lib'
@@ -134,8 +129,6 @@ typekit do
         '/base/samples/Wrenches',
         '/base/samples/Motion2D',
         '/base/samples/DepthMap',
-        '/base/actuators/Status',
-        '/base/actuators/Command',
         '/base/geometry/Spline<1>',
         '/base/geometry/Spline<3>',
         '/base/Time',
