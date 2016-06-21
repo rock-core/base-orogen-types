@@ -1,7 +1,7 @@
 // \file  test_matrixx.cpp
 
 #include <boost/test/auto_unit_test.hpp>
-#include <base/eigen.h>
+#include <base/Eigen.hpp>
 #include "base/wrappers/Eigen.hpp"
 #include "base/typekit/OpaqueConvertions.hpp"
 
