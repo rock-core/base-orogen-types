@@ -13,7 +13,7 @@ find_package(Boost REQUIRED)
 include_directories(${BOOST_INCLUDE_DIR})
 
 pkg_check_modules(EIGEN3 REQUIRED "eigen3")
-include_directories(${EIGEN2_INCLUDE_DIRS})
+include_directories(${EIGEN3_INCLUDE_DIRS})
 
 find_package(SISL)
 if (SISL_FOUND)
