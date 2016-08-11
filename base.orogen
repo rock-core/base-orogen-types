@@ -9,6 +9,7 @@ import_types_from "base/Pressure.hpp"
 import_types_from "base/Time.hpp"
 import_types_from "base/Trajectory.hpp"
 import_types_from "base/commands/AUVMotion.hpp"
+import_types_from "base/commands/LinearAngular6DCommand.hpp"
 import_types_from "base/commands/Motion2D.hpp"
 import_types_from "base/commands/AUVPosition.hpp"
 import_types_from "base/commands/Speed6D.hpp"
@@ -96,6 +97,7 @@ typekit do
     export_types roptr_frame_t,
         roptr_framepair_t,
         '/base/Pose',
+        '/base/commands/LinearAngular6DCommand',
         '/base/commands/Motion2D',
         '/base/commands/Speed6D',
         '/base/commands/AUVMotion',
@@ -106,6 +108,7 @@ typekit do
         '/base/JointTransform',
         '/base/JointTransformVector',
         '/base/JointsTrajectory',
+        '/base/LinearAngular6DCommand',
         '/base/Trajectory',
         '/std/vector</base/Trajectory>',
         '/base/samples/Joints',
