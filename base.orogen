@@ -8,10 +8,8 @@ import_types_from "base/Temperature.hpp"
 import_types_from "base/Pressure.hpp"
 import_types_from "base/Time.hpp"
 import_types_from "base/Trajectory.hpp"
-import_types_from "base/commands/AUVMotion.hpp"
 import_types_from "base/commands/LinearAngular6DCommand.hpp"
 import_types_from "base/commands/Motion2D.hpp"
-import_types_from "base/commands/AUVPosition.hpp"
 import_types_from "base/commands/Speed6D.hpp"
 import_types_from "base/commands/Joints.hpp"
 import_types_from "base/samples/Pressure.hpp"
@@ -100,8 +98,6 @@ typekit do
         '/base/commands/LinearAngular6DCommand',
         '/base/commands/Motion2D',
         '/base/commands/Speed6D',
-        '/base/commands/AUVMotion',
-        '/base/commands/AUVPosition',
         '/base/commands/Joints',
         '/base/JointState',
         '/base/JointLimits',
