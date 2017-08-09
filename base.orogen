@@ -67,10 +67,12 @@ import_types_from "base/samples/IMUSensors.hpp"
 import_types_from "base/samples/RigidBodyState.hpp"
 import_types_from "base/samples/RigidBodyAcceleration.hpp"
 import_types_from "base/samples/BodyState.hpp"
+import_types_from "base/samples/PoseWithCovariance.hpp"
 
 import_types_from "base/samples/CommandSamples.hpp"
 
 max_sizes '/base/samples/RigidBodyState', 'sourceFrame' => 32, 'targetFrame' => 32
+max_sizes '/base/samples/PoseWithCovariance', 'object_frame_id' => 32, 'frame_id' => 32
 
 # Explicitely intanciate ro_ptr wrappers for Frame and FramePair as it is the
 # standard way to push this kind of types on ports
@@ -123,6 +125,7 @@ typekit do
         '/base/samples/RigidBodyState',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
+        '/base/samples/PoseWithCovariance',
         '/base/Wrench',
         '/base/samples/Wrench',
         '/base/samples/Wrenches',
