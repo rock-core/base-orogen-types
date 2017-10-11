@@ -263,6 +263,15 @@ void ros_convertions::toROS( geometry_msgs::PoseStamped& ros, ::base::samples::R
 }
 void ros_convertions::fromROS( ::base::samples::RigidBodyState& value, geometry_msgs::PoseStamped const& ros )
 {
+  fromROS(value.time, ros.header.stamp);
+  value.sourceFrame = ros.header.frame_id;
+  value.position.x() = ros.pose.position.x;
+  value.position.y() = ros.pose.position.y;
+  value.position.z() = ros.pose.position.z;
+  value.orientation.x() = ros.pose.orientation.x;
+  value.orientation.y() = ros.pose.orientation.y;
+  value.orientation.z() = ros.pose.orientation.z;
+  value.orientation.w() = ros.pose.orientation.w;
 }
 void ros_convertions::toROS( geometry_msgs::PoseStamped& ros, ::base::samples::RigidBodyState_m const& value )
 {
@@ -280,6 +289,15 @@ void ros_convertions::toROS( geometry_msgs::PoseStamped& ros, ::base::samples::R
 }
 void ros_convertions::fromROS( ::base::samples::RigidBodyState_m& value, geometry_msgs::PoseStamped const& ros )
 {
+  fromROS(value.time, ros.header.stamp);
+  value.sourceFrame = ros.header.frame_id;
+  value.position.data[0] = ros.pose.position.x;
+  value.position.data[1] = ros.pose.position.y;
+  value.position.data[2] = ros.pose.position.z;
+  value.orientation.im[0] = ros.pose.orientation.x;
+  value.orientation.im[1] = ros.pose.orientation.y;
+  value.orientation.im[2] = ros.pose.orientation.z;
+  value.orientation.re = ros.pose.orientation.w;
 }
 
 
