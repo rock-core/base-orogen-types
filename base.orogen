@@ -142,6 +142,7 @@ typekit do
         '/base/Vector4d',
         '/base/Vector6d',
         '/base/VectorXd',
+        '/base/Matrix2d',
         '/base/Matrix3d',
         '/base/Matrix4d',
         '/base/Matrix6d',
