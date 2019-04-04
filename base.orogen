@@ -29,20 +29,13 @@ import_types_from "base/JointState.hpp"
 import_types_from "base/JointLimits.hpp"
 import_types_from "base/JointTransform.hpp"
 import_types_from "base/JointsTrajectory.hpp"
-
-if has_library?('base-lib')
-    using_library 'base-lib'
-    # Opaque wrappers for Spline types
-    import_types_from 'base/wrappers/geometry/Spline.hpp'
-end
+import_types_from 'base/wrappers/geometry/Spline.hpp'
 
 # Opaque wrappers for Eigen types
 import_types_from "base/wrappers/Eigen.hpp"
 
-if has_library?('base-lib')
-    typekit.opaque_type '/base/geometry/Spline<3>', '/wrappers/geometry/Spline'
-    typekit.opaque_type '/base/geometry/Spline<1>', '/wrappers/geometry/Spline'
-end
+typekit.opaque_type '/base/geometry/Spline<3>', '/wrappers/geometry/Spline'
+typekit.opaque_type '/base/geometry/Spline<1>', '/wrappers/geometry/Spline'
 typekit.opaque_type '/base/Vector2d', 'wrappers/Vector2d'
 typekit.opaque_type '/base/Vector3d', 'wrappers/Vector3d'
 typekit.opaque_type '/base/Vector4d', 'wrappers/Vector4d'
@@ -56,9 +49,8 @@ typekit.opaque_type '/base/Matrix6d', 'wrappers/Matrix6d'
 typekit.opaque_type '/base/MatrixXd', 'wrappers/MatrixXd'
 typekit.opaque_type '/base/VectorXd', 'wrappers/VectorXd'
 typekit.opaque_type '/base/Affine3d', 'wrappers/Matrix4d'
-if has_library?('base-lib')
-    import_types_from "base/geometry/Spline.hpp"
-end
+
+import_types_from "base/geometry/Spline.hpp"
 import_types_from "base/TwistWithCovariance.hpp"
 import_types_from "base/TransformWithCovariance.hpp"
 import_types_from "base/Pose.hpp"

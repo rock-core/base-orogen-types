@@ -15,14 +15,18 @@ include_directories(${BOOST_INCLUDE_DIR})
 pkg_check_modules(EIGEN3 REQUIRED "eigen3")
 include_directories(${EIGEN3_INCLUDE_DIRS})
 
-find_package(SISL)
-if (SISL_FOUND)
-    pkg_check_modules(BASELIB REQUIRED "base-lib")
-    include_directories(${BASELIB_INCLUDE_DIRS})
-    include_directories(${SISL_INCLUDE_DIRS})
-    list(APPEND TOOLKIT_ADDITIONAL_SOURCES ${CMAKE_SOURCE_DIR}/src/spline.cpp)
-    list(APPEND TOOLKIT_ADDITIONAL_LIBRARIES ${BASELIB_LIBRARIES} ${SISL_LIBRARIES})
+pkg_check_modules(BASE_TYPES_SISL "base-types-sisl")
+if(NOT BASE_TYPES_SISL_FOUND)
+    message(FATAL_ERROR "The dependency base/types has been built"
+        " without SISL support."
+        " It seems that you have intentially disabled the use of SISL in"
+        " base/types. While disabling SISL support might be useful"
+        " for an isolated reuse of base/types, base/orogen/types or more"
+        " generally the framework Rock strictly requires"
+        " SISL support in base/types. Please rebuild base/types with"
+        " -DUSE_SISL=ON")
 endif()
+list(APPEND TOOLKIT_ADDITIONAL_SOURCES ${CMAKE_SOURCE_DIR}/src/spline.cpp)
 
 INCLUDE(baseBase)
 

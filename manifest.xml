@@ -12,6 +12,7 @@
     </copyright>
   <license>GPL v2 or later</license>
   <depend package="base/types"/>
+  <depend package="external/sisl" />
   <depend package="base/orogen/std"/>
   <depend package="orogen"/>
   <depend package="rtt"/>
