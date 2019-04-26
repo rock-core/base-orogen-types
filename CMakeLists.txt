@@ -26,6 +26,10 @@ if(NOT BASE_TYPES_SISL_FOUND)
         " SISL support in base/types. Please rebuild base/types with"
         " -DUSE_SISL=ON")
 endif()
+# src/spline.cpp needs to get access to internal fields of SISLCurve
+# (not base-types Spline wrapper). Add SISL's include path
+find_package(SISL)
+include_directories(${SISL_INCLUDE_DIRS})
 list(APPEND TOOLKIT_ADDITIONAL_SOURCES ${CMAKE_SOURCE_DIR}/src/spline.cpp)
 
 INCLUDE(baseBase)
