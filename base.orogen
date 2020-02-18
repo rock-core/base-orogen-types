@@ -12,6 +12,7 @@ import_types_from "base/commands/LinearAngular6DCommand.hpp"
 import_types_from "base/commands/Motion2D.hpp"
 import_types_from "base/commands/Speed6D.hpp"
 import_types_from "base/commands/Joints.hpp"
+import_types_from "base/samples/Temperature.hpp"
 import_types_from "base/samples/Pressure.hpp"
 import_types_from "base/samples/Frame.hpp"
 import_types_from "base/samples/LaserScan.hpp"
@@ -150,6 +151,7 @@ typekit do
         '/base/Temperature',
         '/base/Pressure',
         '/base/samples/Pressure',
+        '/base/samples/Temperature',
         '/std/vector</std/string>'
 
     ros_mappings \
