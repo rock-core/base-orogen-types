@@ -152,7 +152,8 @@ typekit do
         '/base/Pressure',
         '/base/samples/Pressure',
         '/base/samples/Temperature',
-        '/std/vector</std/string>'
+        '/std/vector</std/string>',
+	'/std/vector</base/Time>'
 
     ros_mappings \
         '/std/string' => 'std_msgs/String',
