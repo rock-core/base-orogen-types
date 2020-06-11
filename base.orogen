@@ -61,6 +61,8 @@ import_types_from "base/samples/RigidBodyState.hpp"
 import_types_from "base/samples/RigidBodyAcceleration.hpp"
 import_types_from "base/samples/BodyState.hpp"
 import_types_from "base/samples/PoseWithCovariance.hpp"
+import_types_from "base/samples/BoundingBox.hpp"
+import_types_from "base/samples/OrientedBoundingBox.hpp"
 
 import_types_from "base/samples/CommandSamples.hpp"
 
@@ -153,7 +155,11 @@ typekit do
         '/base/samples/Pressure',
         '/base/samples/Temperature',
         '/std/vector</std/string>',
-        '/std/vector</base/Time>'
+        '/std/vector</base/Time>',
+        '/base/samples/BoundingBox',
+        '/base/samples/OrientedBoundingBox',
+        '/std/vector</base/samples/BoundingBox>',
+        '/std/vector</base/samples/OrientedBoundingBox>'
 
     ros_mappings \
         '/std/string' => 'std_msgs/String',
