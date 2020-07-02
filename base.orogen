@@ -132,6 +132,7 @@ typekit do
         '/base/Time',
         '/base/Position',
         '/std/vector</base/Vector3d>',
+        '/std/vector</base/Vector4d>',
         '/base/Waypoint',
         '/std/vector</base/Waypoint>',
         '/std/vector</uint32_t>',
