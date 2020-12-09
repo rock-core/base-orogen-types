@@ -55,9 +55,16 @@ import_types_from "base/geometry/Spline.hpp"
 import_types_from "base/TwistWithCovariance.hpp"
 import_types_from "base/TransformWithCovariance.hpp"
 import_types_from "base/Pose.hpp"
+import_types_from "base/Twist.hpp"
+import_types_from "base/Acceleration.hpp"
+import_types_from "base/RigidBodyStateSE3.hpp"
 import_types_from "base/Waypoint.hpp"
 import_types_from "base/samples/IMUSensors.hpp"
 import_types_from "base/samples/RigidBodyState.hpp"
+import_types_from "base/samples/Twist.hpp"
+import_types_from "base/samples/Acceleration.hpp"
+import_types_from "base/samples/RigidBodyStateSE3.hpp"
+import_types_from "base/samples/RigidBodyStateSE3Vector.hpp"
 import_types_from "base/samples/RigidBodyAcceleration.hpp"
 import_types_from "base/samples/BodyState.hpp"
 import_types_from "base/samples/PoseWithCovariance.hpp"
@@ -92,6 +99,8 @@ typekit do
     export_types roptr_frame_t,
         roptr_framepair_t,
         '/base/Pose',
+        '/base/Twist',
+        '/base/Acceleration',
         '/base/commands/LinearAngular6DCommand',
         '/base/commands/Motion2D',
         '/base/commands/Speed6D',
@@ -119,6 +128,10 @@ typekit do
         '/base/TransformWithCovariance',
         '/base/samples/BodyState',
         '/base/samples/RigidBodyState',
+        '/base/samples/Twist',
+        '/base/samples/Acceleration',
+        '/base/samples/RigidBodyStateSE3',
+        '/base/samples/RigidBodyStateSE3Vector',
         '/base/samples/RigidBodyAcceleration',
         '/base/samples/IMUSensors',
         '/base/samples/PoseWithCovariance',
