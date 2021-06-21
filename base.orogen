@@ -26,6 +26,8 @@ import_types_from "base/Wrench.hpp"
 import_types_from "base/samples/Wrench.hpp"
 import_types_from "base/samples/Wrenches.hpp"
 import_types_from "base/samples/DepthMap.hpp"
+import_types_from "base/samples/Event.hpp"
+import_types_from "base/samples/EventArray.hpp"
 import_types_from "base/JointState.hpp"
 import_types_from "base/JointLimits.hpp"
 import_types_from "base/JointTransform.hpp"
@@ -140,6 +142,8 @@ typekit do
         '/base/samples/Wrenches',
         '/base/samples/Motion2D',
         '/base/samples/DepthMap',
+        '/base/samples/Event',
+        '/base/samples/EventArray',
         '/base/geometry/Spline<1>',
         '/base/geometry/Spline<3>',
         '/base/Time',
