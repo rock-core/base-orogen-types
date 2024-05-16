@@ -8,6 +8,7 @@ import_types_from "base/Temperature.hpp"
 import_types_from "base/Pressure.hpp"
 import_types_from "base/Time.hpp"
 import_types_from "base/Trajectory.hpp"
+import_types_from "base/LogMessage.hpp"
 import_types_from "base/commands/LinearAngular6DCommand.hpp"
 import_types_from "base/commands/Motion2D.hpp"
 import_types_from "base/commands/Speed6D.hpp"
@@ -177,7 +178,8 @@ typekit do
         '/base/samples/BoundingBox',
         '/base/samples/OrientedBoundingBox',
         '/std/vector</base/samples/BoundingBox>',
-        '/std/vector</base/samples/OrientedBoundingBox>'
+        '/std/vector</base/samples/OrientedBoundingBox>',
+        '/base/LogMessage'
 
     ros_mappings \
         '/std/string' => 'std_msgs/String',
